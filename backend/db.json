@@ -1,0 +1,481 @@
+{
+  "students": [
+    {
+      "fullname": "Musa Mashimbyi",
+      "studentNumber": "250505402",
+      "block": "Block E",
+      "gender": "Male",
+      "emailAddress": "musamashibyi6@gmail.com",
+      "password": "mashilaMM5"
+    },
+    {
+      "fullname": "ubenathi",
+      "studentNumber": "230596525",
+      "block": "Block A",
+      "gender": "Male",
+      "emailAddress": "ubeubza@gmail.com",
+      "password": "Ub3n@th!"
+    },
+    {
+      "fullname": "Masindi Rambuani",
+      "studentNumber": "230581994",
+      "block": "Block B",
+      "gender": "Female",
+      "emailAddress": "cindybubbles132@gmail.com",
+      "password": "Rambuani@123%"
+    }
+  ],
+  "issues": [
+    {
+      "id": 1787691674961,
+      "studentNumber": "222123456",
+      "title": "lights off",
+      "category": "Electrical",
+      "location": "block e",
+      "description": "     hurry up       ",
+      "status": "In Progress",
+      "createdAt": "2026-08-25T21:01:14.962Z",
+      "adminComment": "fixed",
+      "updatedAt": "2026-10-07T17:03:15.179Z"
+    },
+    {
+      "id": 1787694405724,
+      "studentNumber": "222123456",
+      "title": "lights are off",
+      "category": "Electrical",
+      "location": "block e",
+      "description": "            hurry",
+      "status": "Completed",
+      "createdAt": "2026-08-25T21:46:45.724Z",
+      "adminComment": "i will fix.",
+      "updatedAt": "2026-10-07T15:36:36.926Z"
+    },
+    {
+      "id": 1787695317025,
+      "studentNumber": "222123456",
+      "title": "TOILETS ARE NOT CLEANED",
+      "category": "Cleaning",
+      "location": "BLOCK E",
+      "description": "            ",
+      "status": "Pending",
+      "createdAt": "2026-08-25T22:01:57.025Z",
+      "adminComment": "",
+      "updatedAt": "2026-08-25T22:04:57.678Z"
+    },
+    {
+      "id": 1787700973120,
+      "studentNumber": "222123456",
+      "title": "DRAIN IS LINKING",
+      "category": "Water Leak",
+      "location": "BLOCK D",
+      "description": "  HURRY          ",
+      "status": "Pending",
+      "createdAt": "2026-08-25T23:36:13.120Z",
+      "adminComment": "i will fix relax",
+      "updatedAt": "2026-08-25T23:37:21.464Z"
+    },
+    {
+      "id": 1787705251886,
+      "studentNumber": "222123456",
+      "title": "COLD SHOWER",
+      "category": "Water Leak",
+      "location": "BLOCK E",
+      "description": "            ",
+      "status": "In Progress",
+      "createdAt": "2026-08-26T00:47:31.886Z",
+      "adminComment": "i will fix it",
+      "updatedAt": "2026-08-26T00:48:46.791Z"
+    },
+    {
+      "id": 1787705946844,
+      "studentNumber": "250505402",
+      "title": "DITY KITCHEN",
+      "category": "Cleaning",
+      "location": "BLOCK E",
+      "description": "            ",
+      "status": "Completed",
+      "createdAt": "2026-08-26T00:59:06.844Z",
+      "adminComment": "they have cleaned",
+      "updatedAt": "2026-10-07T15:41:48.744Z"
+    },
+    {
+      "id": 1787866510576,
+      "studentNumber": "250505402",
+      "title": "My door handle is broken",
+      "category": "Furniture Damage",
+      "location": "Block E room 203",
+      "description": "It broke from inside",
+      "status": "Completed",
+      "createdAt": "2026-08-27T21:35:10.576Z",
+      "adminComment": "fixed",
+      "updatedAt": "2026-08-27T21:35:56.741Z"
+    },
+    {
+      "id": 1788081342970,
+      "studentNumber": "250505402",
+      "title": "LIGHTS ARE OFF",
+      "category": "Water Leak",
+      "location": "Room 201",
+      "description": "please hurry up",
+      "status": "Completed",
+      "createdAt": "2026-08-30T09:15:42.970Z",
+      "adminComment": "",
+      "updatedAt": "2026-08-30T09:29:07.024Z"
+    },
+    {
+      "id": 1791213900510,
+      "studentNumber": "230581994",
+      "title": "Light are broken",
+      "category": "Electrical",
+      "location": "Block A",
+      "description": "My light are turning on.",
+      "status": "Completed",
+      "createdAt": "2026-10-05T15:25:00.510Z",
+      "adminComment": "fixed",
+      "updatedAt": "2026-10-07T15:42:29.902Z"
+    },
+    {
+      "id": 1791219093489,
+      "studentNumber": "250505402",
+      "title": "NO WATER",
+      "category": "Water Leak",
+      "location": "BLOCK E",
+      "description": "NO WATER",
+      "status": "Pending",
+      "createdAt": "2026-10-05T16:51:33.490Z"
+    },
+    {
+      "id": 1791387047827,
+      "studentNumber": "250505402",
+      "title": "LIGHT OFF",
+      "category": "Internet/WiFi",
+      "location": "ROOM 20",
+      "description": "LIGHT CUTTED",
+      "status": "Pending",
+      "createdAt": "2026-10-07T15:30:47.827Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1787691674963,
+      "studentNumber": "222123456",
+      "message": "Issue \"lights off\" has been reported.",
+      "read": false,
+      "createdAt": "2026-08-25T21:01:14.963Z"
+    },
+    {
+      "id": 1787694405725,
+      "studentNumber": "222123456",
+      "message": "Issue \"lights are off\" has been reported.",
+      "read": false,
+      "createdAt": "2026-08-25T21:46:45.725Z"
+    },
+    {
+      "id": 1787694687952,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights off\": In Progress - i will fix it dont worry",
+      "read": false,
+      "createdAt": "2026-08-25T21:51:27.952Z"
+    },
+    {
+      "id": 1787694731862,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights are off\": Pending - i will fix it",
+      "read": false,
+      "createdAt": "2026-08-25T21:52:11.862Z"
+    },
+    {
+      "id": 1787694737020,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights off\": Pending - ",
+      "read": false,
+      "createdAt": "2026-08-25T21:52:17.020Z"
+    },
+    {
+      "id": 1787694790342,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights are off\": Pending - ",
+      "read": false,
+      "createdAt": "2026-08-25T21:53:10.342Z"
+    },
+    {
+      "id": 1787695278413,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights off\": Pending - ",
+      "read": false,
+      "createdAt": "2026-08-25T22:01:18.413Z"
+    },
+    {
+      "id": 1787695317025,
+      "studentNumber": "222123456",
+      "message": "Issue \"TOILETS ARE NOT CLEANED\" has been reported.",
+      "read": false,
+      "createdAt": "2026-08-25T22:01:57.025Z"
+    },
+    {
+      "id": 1787695347362,
+      "studentNumber": "222123456",
+      "message": "Update on \"TOILETS ARE NOT CLEANED\": In Progress - ",
+      "read": false,
+      "createdAt": "2026-08-25T22:02:27.362Z"
+    },
+    {
+      "id": 1787695497678,
+      "studentNumber": "222123456",
+      "message": "Update on \"TOILETS ARE NOT CLEANED\": Pending - ",
+      "read": false,
+      "createdAt": "2026-08-25T22:04:57.678Z"
+    },
+    {
+      "id": 1787695977386,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights are off\": Pending - i will fix it",
+      "read": false,
+      "createdAt": "2026-08-25T22:12:57.386Z"
+    },
+    {
+      "id": 1787700973120,
+      "studentNumber": "222123456",
+      "message": "Issue \"DRAIN IS LINKING\" has been reported.",
+      "read": false,
+      "createdAt": "2026-08-25T23:36:13.120Z"
+    },
+    {
+      "id": 1787701041464,
+      "studentNumber": "222123456",
+      "message": "Update on \"DRAIN IS LINKING\": Pending - i will fix relax",
+      "read": false,
+      "createdAt": "2026-08-25T23:37:21.464Z"
+    },
+    {
+      "id": 1787705251886,
+      "studentNumber": "222123456",
+      "message": "Issue \"COLD SHOWER\" has been reported.",
+      "read": false,
+      "createdAt": "2026-08-26T00:47:31.886Z"
+    },
+    {
+      "id": 1787705326791,
+      "studentNumber": "222123456",
+      "message": "Update on \"COLD SHOWER\": In Progress - i will fix it",
+      "read": false,
+      "createdAt": "2026-08-26T00:48:46.791Z"
+    },
+    {
+      "id": 1787705946844,
+      "studentNumber": "250505402",
+      "message": "Issue \"DITY KITCHEN\" has been reported.",
+      "read": false,
+      "createdAt": "2026-08-26T00:59:06.844Z"
+    },
+    {
+      "id": 1787706017747,
+      "studentNumber": "250505402",
+      "message": "Update on \"DITY KITCHEN\": Completed - they have cleaned",
+      "read": false,
+      "createdAt": "2026-08-26T01:00:17.747Z"
+    },
+    {
+      "id": 1787866241829,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights off\": Completed - ",
+      "read": false,
+      "createdAt": "2026-08-27T21:30:41.829Z"
+    },
+    {
+      "id": 1787866390213,
+      "studentNumber": "250505402",
+      "message": "Update on \"DITY KITCHEN\": Completed - they have cleaned",
+      "read": false,
+      "createdAt": "2026-08-27T21:33:10.213Z"
+    },
+    {
+      "id": 1787866510576,
+      "studentNumber": "250505402",
+      "message": "Issue \"My door handle is broken\" has been reported.",
+      "read": false,
+      "createdAt": "2026-08-27T21:35:10.576Z"
+    },
+    {
+      "id": 1787866526484,
+      "studentNumber": "250505402",
+      "message": "Update on \"My door handle is broken\": In Progress - ",
+      "read": false,
+      "createdAt": "2026-08-27T21:35:26.484Z"
+    },
+    {
+      "id": 1787866556741,
+      "studentNumber": "250505402",
+      "message": "Update on \"My door handle is broken\": Completed - fixed",
+      "read": false,
+      "createdAt": "2026-08-27T21:35:56.741Z"
+    },
+    {
+      "id": 1788081342970,
+      "studentNumber": "250505402",
+      "message": "Issue \"LIGHTS ARE OFF\" has been reported.",
+      "read": false,
+      "createdAt": "2026-08-30T09:15:42.970Z"
+    },
+    {
+      "id": 1788081405687,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights off\": In Progress - ",
+      "read": false,
+      "createdAt": "2026-08-30T09:16:45.687Z"
+    },
+    {
+      "id": 1788081430327,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights off\": Pending - i will ix it",
+      "read": false,
+      "createdAt": "2026-08-30T09:17:10.327Z"
+    },
+    {
+      "id": 1788082034377,
+      "studentNumber": "250505402",
+      "message": "Update on \"DITY KITCHEN\": In Progress - they have cleaned",
+      "read": false,
+      "createdAt": "2026-08-30T09:27:14.377Z"
+    },
+    {
+      "id": 1788082061796,
+      "studentNumber": "250505402",
+      "message": "Update on \"DITY KITCHEN\": In Progress - they have cleaned",
+      "read": false,
+      "createdAt": "2026-08-30T09:27:41.796Z"
+    },
+    {
+      "id": 1788082075987,
+      "studentNumber": "250505402",
+      "message": "Update on \"DITY KITCHEN\": Completed - they have cleaned",
+      "read": false,
+      "createdAt": "2026-08-30T09:27:55.987Z"
+    },
+    {
+      "id": 1788082099677,
+      "studentNumber": "250505402",
+      "message": "Update on \"LIGHTS ARE OFF\": In Progress - ",
+      "read": false,
+      "createdAt": "2026-08-30T09:28:19.678Z"
+    },
+    {
+      "id": 1788082147024,
+      "studentNumber": "250505402",
+      "message": "Update on \"LIGHTS ARE OFF\": Completed - ",
+      "read": false,
+      "createdAt": "2026-08-30T09:29:07.024Z"
+    },
+    {
+      "id": 1791213900510,
+      "studentNumber": "230581994",
+      "message": "Issue \"Light are broken\" has been reported.",
+      "read": false,
+      "createdAt": "2026-10-05T15:25:00.510Z"
+    },
+    {
+      "id": 1791219093490,
+      "studentNumber": "250505402",
+      "message": "Issue \"NO WATER\" has been reported.",
+      "read": false,
+      "createdAt": "2026-10-05T16:51:33.490Z"
+    },
+    {
+      "id": 1791219386020,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights off\": Pending - i will ix it",
+      "read": false,
+      "createdAt": "2026-10-05T16:56:26.020Z"
+    },
+    {
+      "id": 1791387047827,
+      "studentNumber": "250505402",
+      "message": "Issue \"LIGHT OFF\" has been reported.",
+      "read": false,
+      "createdAt": "2026-10-07T15:30:47.827Z"
+    },
+    {
+      "id": 1791387294714,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights off\": In Progress - i will ix it",
+      "read": false,
+      "createdAt": "2026-10-07T15:34:54.714Z"
+    },
+    {
+      "id": 1791387373132,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights off\": In Progress - i will ix it",
+      "read": false,
+      "createdAt": "2026-10-07T15:36:13.132Z"
+    },
+    {
+      "id": 1791387396926,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights are off\": Completed - i will fix.",
+      "read": false,
+      "createdAt": "2026-10-07T15:36:36.926Z"
+    },
+    {
+      "id": 1791387422736,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights off\": In Progress - i will ix it",
+      "read": false,
+      "createdAt": "2026-10-07T15:37:02.736Z"
+    },
+    {
+      "id": 1791387437813,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights off\": Completed - i will ix it",
+      "read": false,
+      "createdAt": "2026-10-07T15:37:17.813Z"
+    },
+    {
+      "id": 1791387667483,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights off\": Completed - fixed",
+      "read": false,
+      "createdAt": "2026-10-07T15:41:07.483Z"
+    },
+    {
+      "id": 1791387708744,
+      "studentNumber": "250505402",
+      "message": "Update on \"DITY KITCHEN\": Completed - they have cleaned",
+      "read": false,
+      "createdAt": "2026-10-07T15:41:48.744Z"
+    },
+    {
+      "id": 1791387749902,
+      "studentNumber": "230581994",
+      "message": "Update on \"Light are broken\": Completed - fixed",
+      "read": false,
+      "createdAt": "2026-10-07T15:42:29.902Z"
+    },
+    {
+      "id": 1791392595179,
+      "studentNumber": "222123456",
+      "message": "Update on \"lights off\": In Progress - fixed",
+      "read": false,
+      "createdAt": "2026-10-07T17:03:15.179Z"
+    }
+  ],
+  "marketplace": [
+    {
+      "id": 1787852698577,
+      "studentNumber": "250505402",
+      "title": "LOPPIS",
+      "description": "    ",
+      "price": "3",
+      "createdAt": "2026-08-27T17:44:58.577Z"
+    },
+    {
+      "id": 1787852712242,
+      "studentNumber": "250505402",
+      "title": "LOPPIS",
+      "description": "    ",
+      "price": "3",
+      "createdAt": "2026-08-27T17:45:12.242Z"
+    }
+  ],
+  "emergencies": [],
+  "lostFound": []
+}
