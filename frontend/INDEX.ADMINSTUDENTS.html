@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Students</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#ececec;
+    display:flex;
+    min-height:100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar{
+    width:250px;
+    background:#d8d8d8;
+    padding:20px;
+    position:fixed;
+    left:0;
+    top:0;
+    height:100vh;
+}
+
+.sidebar h2{
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    color:#135b59;
+    margin-bottom:30px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    margin-bottom:12px;
+    padding:15px;
+    border-radius:12px;
+    cursor:pointer;
+    background:white;
+    color:#333;
+    font-weight:bold;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    transition:.3s;
+}
+
+.sidebar li i{
+    font-size:18px;
+    width:25px;
+}
+
+.sidebar li:hover{
+    background:#146f6a;
+    color:white;
+}
+
+.sidebar li.active{
+    background:white !important;
+    color:#146f6a !important;
+}
+
+.sidebar li.active i{
+    color:#146f6a !important;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.main-content{
+    margin-left:250px;
+    width:calc(100% - 250px);
+    padding:30px;
+}
+
+.header{
+    background:#146f6a;
+    color:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:25px;
+}
+
+.header h1{
+    color:white;
+}
+
+/* =========================
+   CARDS
+========================= */
+.card{
+    background:white;
+    padding:17px;
+    border-radius:15px;
+    margin-bottom:20px;
+    box-shadow:0 4px 8px rgba(0,0,0,.1);
+}
+
+.card h2{
+    color:#146f6a;
+    margin-bottom:15px;
+    text-align:center;
+}
+
+/* =========================
+   FORM CONTROLS
+========================= */
+input,
+select,
+textarea{
+    width:50%;
+    height:32px;           /* Reduce height */
+    padding:0 12px;        /* Left-right padding only */
+    margin-bottom:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:14px;
+    display:flex;
+    align-items:center;
+    margin:0 auto 12px auto; 
+}
+
+/* Textarea needs its own styling */
+textarea{
+    height:50px;          /* Smaller textarea */
+    padding:12px;
+    resize:none;
+}
+
+/* Center placeholder text vertically */
+input::placeholder,
+textarea::placeholder{
+    line-height:40px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#146f6a;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button{
+    width:50%;
+    display:block;
+    margin:0 auto; /* Centers the button */
+    background:#146f6a;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#0e504c;
+}
+
+/* =========================
+   TABLE
+========================= */
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+th{
+    background:#146f6a;
+    color:white;
+    padding:12px;
+    text-align:left;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+    background:#f5f5f5;
+}
+
+/* =========================
+   DELETE BUTTON
+========================= */
+.delete-btn{
+    width:auto;
+    background:#e74c3c;
+    padding:8px 12px;
+}
+
+.delete-btn:hover{
+    background:#c0392b;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media(max-width:900px){
+
+    .sidebar{
+        width:200px;
+    }
+
+    .main-content{
+        margin-left:200px;
+        width:calc(100% - 200px);
+    }
+}
+
+@media(max-width:768px){
+
+    body{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        height:auto;
+        position:relative;
+    }
+
+    .main-content{
+        width:100%;
+        margin-left:0;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+<body>
+
+    <div class="sidebar">
+
+        <h2>DormDesk</h2>
+
+                <ul>
+
+             <li onclick="GoToADMINCONTENT()">
+                 <i class="fa-solid fa-chart-line"></i>
+                 Dashboard
+             </li>
+             <li onclick="goToUPDATEreport()">
+                 <i class="fa-solid fa-screwdriver-wrench"></i>
+                  Maintenance Requests
+             </li>
+
+             <li onclick = "GoToADMINSTUDENTS()">
+                 <i class="fa-solid fa-users"></i>
+                 Students
+             </li>
+            <li onclick="GoToProfileADMIN()">
+                 <i class="fa-solid fa-user"></i>
+                 Profile
+                 </a>
+            </li>
+
+             <li onclick="logout()">
+                 <i class="fa-solid fa-right-from-bracket"></i>
+                 Logout
+             </li>
+
+        </ul>
+
+    </div>
+
+    <div class="main-content">
+
+        <div class="header">
+            <h1>Student Management</h1>
+            <p>View, Add and Delete Students</p>
+        </div>
+
+        <!-- Add Student Form -->
+
+        <div class="card">
+
+            <h2>Add Student</h2>
+
+            <input type="text" id="fullname" placeholder="Full Name">
+
+            <input type="text" id="studentNumber" placeholder="Student Number">
+
+            <input type="email" id="emailAddress" placeholder="Email">
+
+            <input type="text" id="block" placeholder="Block">
+
+            <select id="gender">
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+
+            <input type="password" id="password" placeholder="Password">
+
+            <button onclick="addStudent()">
+                Add Student
+            </button>
+
+        </div>
+
+        <!-- Students Table -->
+
+        <div class="card">
+
+            <h2>Registered Students</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Student Number</th>
+                        <th>Email</th>
+                        <th>Block</th>
+                        <th>Gender</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="studentsTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+         function GoToADMINCONTENT(){
+         window.location.href = "INDEX.ADMINCONTENT.html";
+     }
+     function logout(){
+         window.location.href="INDEX.ADMINLOGIN.html";
+     }
+     function GoToADMINSTUDENTS(){
+        window.location.href = "INDEX.ADMINSTUDENTS.html";
+     }
+     function GoToProfileADMIN(){
+         window.location.href = "INDEX.ADMINPROFILE.html";
+     }
+     function goToUPDATEreport(){
+        window.location.href="INDEX.ADMINUPDATEREPORT.html";
+     }
+
+const API_URL = "http://localhost:3000";
+
+async function loadStudents(){
+
+    try{
+
+        const response =
+        await fetch(`${API_URL}/api/students`);
+
+        const students =
+        await response.json();
+
+        const table =
+        document.getElementById("studentsTable");
+
+        table.innerHTML = "";
+
+        students.forEach(student => {
+
+            table.innerHTML += `
+                <tr>
+                    <td>${student.fullname}</td>
+                    <td>${student.studentNumber}</td>
+                    <td>${student.emailAddress}</td>
+                    <td>${student.block}</td>
+                    <td>${student.gender}</td>
+
+                    <td>
+                        <button
+                            class="delete-btn"
+                            onclick="deleteStudent('${student.studentNumber}')">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            `;
+
+        });
+
+    }catch(error){
+        console.error(error);
+    }
+}
+
+async function addStudent(){
+
+    const student = {
+
+        fullname:
+            document.getElementById("fullname").value,
+
+        studentNumber:
+            document.getElementById("studentNumber").value,
+
+        emailAddress:
+            document.getElementById("emailAddress").value,
+
+        block:
+            document.getElementById("block").value,
+
+        gender:
+            document.getElementById("gender").value,
+
+        password:
+            document.getElementById("password").value
+    };
+
+    try{
+
+        const response =
+        await fetch(
+            `${API_URL}/api/students/register`,
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify(student)
+            }
+        );
+
+        const data =
+        await response.json();
+
+        alert(data.message);
+
+        loadStudents();
+
+    }catch(error){
+        console.error(error);
+    }
+}
+
+async function deleteStudent(studentNumber){
+
+    if(!confirm("Delete this student?")){
+        return;
+    }
+
+    try{
+
+        const response =
+        await fetch(
+            `${API_URL}/api/students/${studentNumber}`,
+            {
+                method:"DELETE"
+            }
+        );
+
+        const data =
+        await response.json();
+
+        alert(data.message);
+
+        loadStudents();
+
+    }catch(error){
+        console.error(error);
+    }
+}
+
+loadStudents();
+
+</script>
+
+</body>
+</html>

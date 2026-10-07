@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+     <html lang="en">
+         <head>
+             <meta charset="UTF-8">
+             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+             <title>Admin Registration | DormDesk</title>
+
+             <style>
+
+                 *{
+                     margin:0;
+                     padding:0;
+                     box-sizing:border-box;
+                     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                 }
+
+                 body{
+                     background:linear-gradient(135deg,#053F50,#118A8C,#29C7C9);
+                     min-height:100vh;
+                     display:flex;
+                     flex-direction:column;
+                 }
+
+                  /* HEADER */
+
+                 header{
+                     width:100%;
+                     background:#0f4c5c;
+                     padding:15px 30px;
+                     display:flex;
+                     justify-content:space-between;
+                     align-items:center;
+                     box-shadow:0 2px 10px rgba(0,0,0,0.1);
+                 }
+
+                 .logo-container{
+                     display:flex;
+                     align-items:center;
+                     gap:15px;
+                 }
+
+                 .logo-container img{
+                     width:60px;
+                     height:60px;
+                     border-radius:50%;
+                     object-fit:cover;
+                     background:white;
+                 }
+
+                 .logo-container h1{
+                     font-size:30px;
+                     color:white;
+                 }
+
+         
+                  /* nav menu */
+                 .home-btn {
+                     background: none;
+                     border: none;
+                     color: white;
+                     padding: 10px 12px;
+                     cursor: pointer;
+                     font-size: 1rem;
+                     border-radius: 4px;
+                     transition: background-color 0.3s ease;
+                 }
+
+                 .home-btn:hover {
+                     background:#1f6f6d;
+                 }
+
+
+
+                 /* MAIN SECTION */
+
+                 .main{
+                     flex:1;
+                     display:flex;
+                     justify-content:center;
+                     align-items:center;
+                     padding:40px;
+                 }
+
+                 /* CONTAINER */
+
+                 .container{
+                     width:1100px;
+                     max-width:100%;
+                     display:flex;
+                     background:white;
+                     border-radius:20px;
+                     overflow:hidden;
+                     box-shadow:0 15px 35px rgba(0,0,0,0.25);
+                 }
+
+                  /* IMAGE SECTION */
+
+                 .image-section{
+                     width:50%;
+                 }
+
+                 .image-section img{
+                     width:100%;
+                     height:55%;
+                     object-fit:cover;
+                     display:block;
+                 }
+
+                 /* FORM SECTION */
+
+                 .form-section{
+                     width:50%;
+                     background:rgba(186,198,196,0.8);
+                     padding:40px;
+                 }
+
+                 .form-section h2{
+                     text-align:center;
+                     color:#0f4c5c;
+                     margin-bottom:10px;
+                     font-size:32px;
+                 }
+
+                 .subtitle{
+                     text-align:center;
+                     color:#555;
+                     margin-bottom:25px;
+                 }
+
+                 label{
+                     display:block;
+                     margin-bottom:5px;
+                     color:#0f4c5c;
+                     font-weight:600;
+                 }
+
+                 input,
+                 select{
+                     width:100%;
+                     padding:14px;
+                     margin-bottom:15px;
+                     border:1px solid #dcdcdc;
+                     border-radius:10px;
+                     font-size:15px;
+                 }
+
+                 input:focus,
+                 select:focus{
+                     outline:none;
+                     border-color:#1b98a0;
+                     box-shadow:0 0 8px rgba(27,152,160,0.3);
+                 }
+
+                 button{
+                     width:100%;
+                     padding:15px;
+                     border:none;
+                     border-radius:10px;
+                     background:#0f4c5c;
+                     color:white;
+                     font-size:16px;
+                     font-weight:bold;
+                     cursor:pointer;
+                     transition:0.3s;
+                 }
+
+                 button:hover{
+                     background:#1b98a0;
+                 }
+
+                 .links{
+                     text-align:center;
+                     margin-top:20px;
+                 }
+
+                 .links a{
+                     color:#0f4c5c;
+                     text-decoration:none;
+                     font-weight:bold;
+                 }
+
+                 .links a:hover{
+                     text-decoration:underline;
+                 }
+
+                  /* FOOTER */
+
+                  footer{
+                     background:#0f4c5c;
+                     color:white;
+                     text-align:center;
+                     padding:15px;
+                 }
+
+                 /* MOBILE */
+
+                 @media(max-width:768px){
+
+                     .container{
+                         flex-direction:column;
+                     }
+
+                     .image-section,
+                     .form-section{
+                         width:100%;
+                     }
+
+                     .image-section{
+                         height:250px;
+                     }
+                 }
+
+             </style>
+
+             <script>
+
+                 function registerAdmin(event){
+
+                     event.preventDefault();
+
+                     let admin = {
+
+                         fullname: document.getElementById("fullname").value,
+                         employee: document.getElementById("employee").value,
+                         email: document.getElementById("email").value,
+                         phone: document.getElementById("phone").value,
+                         // department: document.getElementById("department").value,
+                         // username: document.getElementById("username").value,
+                         password: document.getElementById("password").value
+
+                     };
+
+                     let confirmPassword =
+                     document.getElementById("confirm").value;
+
+                     if(admin.password !== confirmPassword){
+
+                         alert("Passwords do not match");
+                         return;
+                     }
+
+                     localStorage.setItem(
+                         admin.employee,
+                         JSON.stringify(admin)
+                     );
+
+                     alert("Admin Registered Successfully!");
+
+                     window.location.href =
+                     "INDEX.ADMINLOGIN.html";
+                 }
+
+             </script>
+
+         </head>
+
+         <body>
+
+             <!-- HEADER -->
+
+             <header>
+
+                 <div class="logo-container">
+
+                    <img src = "https://media.licdn.com/dms/image/v2/D4D22AQFFEYM5TCBrfA/feedshare-image-high-res/B4DZ9XL5JhJAAY-/0/1783874163524?e=1791417600&v=beta&t=NVgDIQOlmw5U0wT1lWwU6M9Q4j2RluNun2k-TWxB2TA" alt="Logo" class="logo-img">
+
+                     <h1>DormDesk</h1>
+
+                 </div>
+                 <div class="home-btn" id="home">
+                  <button class="home-btn" onclick="window.location.href='INDEX.LANDINGPAGE.html'">
+                     Home
+                  </button>
+                 </div>
+
+             </header>
+
+               <!-- MAIN -->
+
+             <main class="main">
+
+                 <div class="container">
+
+                     <!-- IMAGE SECTION -->
+
+                     <div class="image-section">
+
+                         <img src = "https://media.licdn.com/dms/image/v2/D4D22AQFFEYM5TCBrfA/feedshare-image-high-res/B4DZ9XL5JhJAAY-/0/1783874163524?e=1787184000&v=beta&t=61WHnj_OfVf0CupimPQuFiNzjEZF_NGQCteC5XP6Syw"alt="DORM DESK">
+
+                     </div>
+
+                     <!-- FORM SECTION -->
+
+                     <div class="form-section">
+
+                         <h2>Admin Registration</h2>
+
+                         <p class="subtitle">
+                             Create a DormDesk Administrator Account
+                         </p>
+
+                         <form onsubmit="registerAdmin(event)">
+
+                             <label for="fullname">
+                                 Full Name
+                             </label>
+
+                             <input
+                                 type="text"
+                                 id="fullname"
+                                 placeholder="Enter Full Name"
+                                 required>
+
+                             <label for="employee">
+                                 Employee Number
+                             </label>
+
+                             <input
+                                 type="text"
+                                 id="employee"
+                                 placeholder="Enter Employee Number"
+                                 required>
+
+                             <label for="email">
+                                 Official Email
+                             </label>
+
+                             <input
+                                 type="email"
+                                 id="email"
+                                 placeholder="admin@dormdesk.com"
+                                 required>
+
+                             <label for="phone">
+                                 Phone Number
+                             </label>
+
+                             <input
+                                 type="tel"
+                                 id="phone"
+                                 placeholder="Enter Phone Number"
+                                 required>
+
+                             <label for="department">
+                                 Department
+                             </label>
+
+                             <!-- <select id="department" required>
+
+                                 <option value="">
+                                     Select Department
+                                 </option>
+
+                                 <option>
+                                     Residence Management
+                                 </option>
+
+                                 <option>
+                                     Health and Safety
+                                 </option>
+
+                                 </select> -->
+
+                                 <!-- <label for="username">
+                                     Username
+                                 </label>
+
+                                 <input
+                                     type="text"
+                                     id="username"
+                                     placeholder="Create Username"
+                                     required> -->
+
+                                     <label for="password">
+                                         Password
+                                     </label>
+
+                             <input
+                                 type="password"
+                                 id="password"
+                                 placeholder="Create Password"
+                                 required>
+
+                             <label for="confirm">
+                                 Confirm Password
+                             </label>
+
+                             <input
+                                 type="password"
+                                 id="confirm"
+                                 placeholder="Confirm Password"
+                                 required>
+
+                             <button type="submit">
+                                 Register Admin
+                             </button>
+
+                         </form>
+
+                         <div class="links">
+                             Already have an account?
+                             <a href="INDEX.ADMINLOGIN.html">
+                                 Admin Login
+                             </a>
+
+                         </div>
+
+                     </div>
+
+                 </div>
+
+             </main>
+
+             <!-- FOOTER -->
+
+             <footer>
+                 <p>
+                     &copy; 2026 DormDesk App. All Rights Reserved.
+                 </p>
+             </footer>
+
+         </body>
+ </html>

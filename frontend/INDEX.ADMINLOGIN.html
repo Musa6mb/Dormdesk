@@ -1,0 +1,392 @@
+ <!DOCTYPE html>
+ <html lang="en">
+     <head>
+         <title>Admin Login - DormDesk</title>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+         <style>
+
+             *{
+                 margin:0;
+                 padding:0;
+                 box-sizing:border-box;
+                 font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+             }
+
+             body{
+                 min-height:100vh;
+                 background:linear-gradient(135deg,#053F50,#118A8C,#29C7C9);
+                 display:flex;
+                 flex-direction:column;
+             }
+
+             /* HEADER */
+
+             header{
+                 width:100%;
+                 background:#0f4c5c;
+                 padding:15px 30px;
+                 display:flex;
+                 justify-content:space-between;
+                 align-items:center;
+                 box-shadow:0 2px 10px rgba(0,0,0,0.1);
+             }
+
+             .logo{
+                 display:flex;
+                 align-items:center;
+                 gap:15px;
+             }
+
+             .logo img{
+                 width:60px;
+                 height:60px;
+                 border-radius:50%;
+                 object-fit:cover;
+                 background:white;
+             }
+
+             .logo h1{
+                 color:white;
+                 font-size:30px;
+             }
+
+
+         
+              /* nav menu */
+             .home-btn {
+                 background: none;
+                 border: none;
+                 color: white;
+                 padding: 10px 12px;
+                 cursor: pointer;
+                 font-size: 1rem;
+                 border-radius: 4px;
+                 transition: background-color 0.3s ease;
+             }
+
+             .home-btn:hover {
+                 background:#1f6f6d;
+             }
+
+
+
+               /* MAIN AREA */
+
+             .main-content{
+                 flex:1;
+                 display:flex;
+                 justify-content:center;
+                 align-items:center;
+                 padding:30px;
+             }
+
+               /* LOGIN CONTAINER */
+
+             .container{
+                 display:flex;
+                 width:900px;
+                 max-width:100%;
+                 min-height:520px;
+                 background:#f3f4f6;
+                 border-radius:15px;
+                 box-shadow:0 10px 25px rgba(0,0,0,0.15);
+                 overflow:hidden;
+             }
+
+             /* LEFT SIDE */
+
+             .left{
+                 width:50%;
+                 background:#e6efee;
+             }
+
+             .left img{
+                 width:100%;
+                 height:70%;
+                 object-fit:cover;
+             }
+
+             /* RIGHT SIDE */
+
+             .right{
+                 width:50%;
+                 background:white;
+                 padding:40px;
+                 display:flex;
+                 flex-direction:column;
+                 justify-content:center;
+             }
+
+             .right h2{
+                 font-size:28px;
+                 color:#1f4d4c;
+                 margin-bottom:5px;
+             }
+
+             .subtitle{
+                 color:#666;
+                 margin-bottom:20px;
+             }
+
+             .input-group{
+                 margin-bottom:15px;
+             }
+
+             input{
+                 width:100%;
+                 padding:12px;
+                 border-radius:8px;
+                 border:1px solid #ccc;
+                 outline:none;
+                 transition:0.3s;
+             }
+
+             input:focus{
+                 border-color:#1f6f6d;
+                 box-shadow:0 0 5px rgba(31,111,109,0.3);
+             }
+
+             .login-btn{
+                 width:100%;
+                 padding:12px;
+                 background:#1f6f6d;
+                 color:white;
+                 border:none;
+                 border-radius:8px;
+                 font-weight:bold;
+                 cursor:pointer;
+                 margin-top:10px;
+             }
+
+             .login-btn:hover{
+                 background:#155a58;
+             }
+
+             .register{
+                 text-align:center;
+                 margin-top:15px;
+             }
+
+             .register a{
+                 color:#1f6f6d;
+                 text-decoration:none;
+                 font-weight:bold;
+             }
+
+             .register a:hover{
+                 text-decoration:underline;
+             }
+
+             #message{
+                 margin-top:15px;
+                 text-align:center;
+                 color:red;
+                 font-weight:bold;
+             }
+
+             /* FOOTER */
+
+             footer{
+                 width:100%;
+                 background:#0f4c5c;
+                 text-align:center;
+                 padding:15px;
+                 color:#e6ecec;
+                 box-shadow:0 -2px 10px rgba(0,0,0,0.1);
+             }
+
+             /* MOBILE */
+
+             @media(max-width:768px){
+
+                 .container{
+                     flex-direction:column;
+                 }
+
+                 .left,
+                 .right{
+                     width:100%;
+                 }
+
+                 .left{
+                     height:250px;
+                 }
+             }
+
+         </style>
+     </head>
+
+     <body>
+
+         <!-- HEADER -->
+
+         <header>
+
+             <div class="logo">
+                 <img src = "https://media.licdn.com/dms/image/v2/D4D22AQFFEYM5TCBrfA/feedshare-image-high-res/B4DZ9XL5JhJAAY-/0/1783874163524?e=1787184000&v=beta&t=61WHnj_OfVf0CupimPQuFiNzjEZF_NGQCteC5XP6Syw"alt= "DORM DESK LOGO">
+                 <h1>DormDesk</h1>
+             </div>
+
+             <div class="home-btn" id="home">
+                 <button class="home-btn" onclick="window.location.href='INDEX.LANDINGPAGE.html'">
+                     Home
+                 </button>
+             </div>
+
+         </header>
+
+         <!-- MAIN CONTENT -->
+
+         <div class="main-content">
+
+             <div class="container">
+
+                 <!-- LEFT SIDE -->
+
+                 <div class="left">
+                     <img src = "https://media.licdn.com/dms/image/v2/D4D22AQFFEYM5TCBrfA/feedshare-image-high-res/B4DZ9XL5JhJAAY-/0/1783874163524?e=1787184000&v=beta&t=61WHnj_OfVf0CupimPQuFiNzjEZF_NGQCteC5XP6Syw"alt="DORM DESK">
+                 </div>
+
+             <!-- RIGHT SIDE -->
+
+             <div class="right">
+
+                 <h2>Admin Login</h2>
+
+                 <p class="subtitle">
+                    Login using your Employee Number
+                 </p>
+
+                 <div class="input-group">
+                    <input
+                        type="text"
+                        id="employee"
+                        placeholder="Employee Number"
+                        required>
+                 </div>
+
+                 <div class="input-group">
+                     <input
+                        type="password"
+                        id="password"
+                        placeholder="Password"
+                        required>
+                 </div>
+
+                 <button
+                    class="login-btn"
+                    onclick="adminLogin()">
+                    Login
+                 </button>
+
+                 <div class="register">
+                     <p>Authorized administrators only.</p>
+                 </div>
+
+
+                <p id="message"></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <p>
+            &copy; 2026 DormDesk App. All Rights Reserved.
+        </p>
+    </footer>
+
+    <script>
+    function adminLogin() {
+
+        const employee = document.getElementById("employee").value.trim();
+        const password = document.getElementById("password").value;
+        const message = document.getElementById("message");
+
+        // Hard-coded admin credentials
+        const ADMIN_EMPLOYEE = "Admin12";
+        const ADMIN_PASSWORD = "Anthill@23";
+
+        // Clear previous message
+        message.textContent = "";
+
+        // Check if fields are empty
+        if (employee === "" || password === "") {
+            message.style.color = "red";
+            message.textContent = "Please enter your Employee Number and Password.";
+            return;
+        }
+
+        // Check credentials
+        if (employee === ADMIN_EMPLOYEE && password === ADMIN_PASSWORD) {
+
+            // Save login status
+            localStorage.setItem("loggedInAdmin", employee);
+
+            // Redirect to Admin Content/Dashboard page
+            window.location.href = "INDEX.ADMINCONTENT.html";
+
+        } else if (employee !== ADMIN_EMPLOYEE) {
+
+            message.style.color = "red";
+            message.textContent = "Invalid Employee Number.";
+
+        } else {
+
+            message.style.color = "red";
+            message.textContent = "Invalid Password.";
+        }
+    }
+</script>
+
+
+    <!-- <script>
+
+        function adminLogin(){
+
+            let employee =
+            document.getElementById("employee").value.trim();
+
+            let password =
+            document.getElementById("password").value;
+
+            let adminData =
+            localStorage.getItem(employee);
+
+            if(adminData === null){
+
+                document.getElementById("message").innerHTML =
+                "Employee Number not found";
+
+                return;
+            }
+
+            let admin = JSON.parse(adminData);
+
+            if(admin.password === password){
+
+                localStorage.setItem(
+                    "loggedInAdmin",
+                    admin.employee
+                );
+
+                window.location.href =
+                "INDEX.ADMINCONTENT.html";
+
+            }else{
+
+                document.getElementById("message").innerHTML =
+                "Invalid Password";
+            }
+        }
+
+    </script> -->
+
+</body>
+</html>

@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DormDesk Admin - Maintenance Requests</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#ececec;
+}
+
+.dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+width:250px;
+background:#d8d8d8;
+padding:20px;
+}
+
+/* LOGO */
+
+.logo{
+text-align:center;
+font-size:24px;
+font-weight:bold;
+color:#135b59;
+margin-bottom:30px;
+}
+
+.logo h2{
+    color:#135b59;
+margin-bottom:20px;
+}
+
+/* MENU */
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    margin-bottom:12px;
+    padding:15px;
+    border-radius:12px;
+    cursor:pointer;
+    background:white;
+    /* color:white; */
+    font-weight:bold;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    transition:.3s;
+}
+
+.sidebar li i{
+    font-size:18px;
+    width:25px;
+}
+
+/* HOVER EFFECT */
+
+.sidebar li:hover,
+.active{
+background:#146f6a;
+color:white;
+}
+
+/* ACTIVE ITEM */
+
+.active{
+    background:white !important;
+    color:#146f6a !important;
+}
+
+.active i{
+    color:#146f6a !important;
+}
+
+/* Main */
+
+.main{
+    flex:1;
+    padding:30px;
+}
+
+.header{
+    background:#146f6a;
+    color:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:25px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 8px rgba(0,0,0,.1);
+    text-align:center;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card span{
+    font-size:35px;
+    font-weight:bold;
+    color:#146f6a;
+}
+
+.request{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+    box-shadow:0 4px 8px rgba(0,0,0,.1);
+}
+
+.request img{
+    width:200px;
+    border-radius:10px;
+    margin-top:10px;
+}
+
+.request h3{
+    color:#146f6a;
+    margin-bottom:10px;
+}
+
+.status{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:20px;
+    color:white;
+    margin:10px 0;
+}
+
+.pending{
+    background:#f39c12;
+}
+
+.progress{
+    background:#3498db;
+}
+
+.completed{
+    background:#27ae60;
+}
+
+select,
+textarea{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+button{
+    margin-top:10px;
+    background:#146f6a;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0e504c;
+}
+
+.update-box{
+    background:#f5f5f5;
+    padding:15px;
+    border-radius:10px;
+    margin-top:15px;
+}
+
+
+                   /* for the AI chatbot */
+                 /* Floating Button */
+
+                 #chatButton{
+
+                     position:fixed;
+                     bottom:25px;
+                     right:25px;
+
+                     width:65px;
+                     height:65px;
+
+                     background:#0f4c5c;
+                     color:white;
+
+                     border-radius:50%;
+
+                     display:flex;
+                     justify-content:center;
+                     align-items:center;
+
+                     font-size:30px;
+
+                     cursor:pointer;
+
+                     box-shadow:0 5px 20px rgba(0,0,0,.3);
+
+                     z-index:999;
+
+                 }
+
+                 #chatButton:hover{
+
+                     background:#118A8C;
+
+                 }
+
+                   /* Chat Window */
+
+                 #chatWindow{
+
+                     position:fixed;
+
+                     bottom:100px;
+                     right:25px;
+
+                     width:360px;
+                     height:520px;
+
+                     background:white;
+
+                     border-radius:15px;
+
+                     display:none;
+
+                     flex-direction:column;
+
+                     overflow:hidden;
+
+                     box-shadow:0 8px 30px rgba(0,0,0,.25);
+
+                     z-index:999;
+
+                 }
+
+                 /* Header */
+
+                 #chatHeader{
+
+                     background:#0f4c5c;
+
+                     color:white;
+
+                     padding:15px;
+
+                     display:flex;
+
+                     justify-content:space-between;
+
+                     align-items:center;
+
+                     font-weight:bold;
+
+                 }
+
+                 #chatHeader button{
+
+                     background:none;
+
+                     border:none;
+
+                     color:white;
+
+                     font-size:18px;
+
+                     cursor:pointer;
+
+                 }
+
+                   /* Messages */
+
+                 #chatMessages{
+
+                     flex:1;
+
+                     padding:15px;
+
+                     overflow-y:auto;
+
+                     background:#f6f6f6;
+
+                 }
+
+                 .user{
+
+                     background:#118A8C;
+
+                     color:white;
+
+                     padding:10px;
+
+                     margin:8px 0;
+
+                     border-radius:12px;
+
+                     width:fit-content;
+
+                     margin-left:auto;
+
+                     max-width:80%;
+
+                 }
+
+                 .bot{
+
+                     background:#e2e2e2;
+
+                     padding:10px;
+
+                     margin:8px 0;
+
+                     border-radius:12px;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+                     max-width:80%;
+
+                 }
+
+                    /* Input */
+
+                 #chatInputArea{
+
+                     display:flex;
+
+                     padding:10px;
+
+                     background:white;
+
+                 }
+
+                 #chatInputArea input{
+
+                     flex:1;
+
+                     padding:10px;
+
+                     border:1px solid #ccc;
+
+                     border-radius:8px;
+
+                 }
+
+                 #chatInputArea button{
+
+                     margin-left:10px;
+
+                     background:#0f4c5c;
+
+                     color:white;
+
+                     border:none;
+
+                     padding:10px 15px;
+
+                     border-radius:8px;
+
+                     cursor:pointer;
+
+                 }
+
+                 #chatInputArea button:hover{
+
+                     background:#118A8C;
+
+                 }
+
+
+@media(max-width:900px){
+
+    .dashboard{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+</head>
+         <!-- Script for AI chatbot -->
+
+         <script>
+             const responses = [
+
+                 {
+                     keywords:["hello","hi","hey"],
+                     reply:"👋 Hello! Welcome to DormDesk. How can I help you today?"
+                 },
+
+                 {
+                     keywords:["how are you doing","I am fine","I am good thanks and you"],
+                     reply:"👋 I am also good thanks. How can I help you today?"
+                 },
+
+                 {
+                     keywords:["wifi","internet"],
+                     reply:"📶 If your Wi-Fi is not working, submit a report under Network Issues."
+                 },
+
+                 {
+                     keywords:["water","hot water"],
+                     reply:"🚿 Please report hot water or plumbing problems under Plumbing."
+                 },
+
+                 {
+                     keywords:["electricity","power"],
+                     reply:"💡 Report electricity problems under Electrical Issues."
+                 },
+
+                 {
+                     keywords:["room"],
+                     reply:"🏠 Please include your Block and Room Number when submitting a report."
+                 },
+
+                 {
+                     keywords:["report"],
+                     reply:"📝 Go to Report Issue, choose a category, describe the problem and click Submit."
+                 },
+
+                 {
+                     keywords:["track"],
+                     reply:"📄 You can track your reports from the 'My Reports' page."
+                 },
+
+                 {
+                     keywords:["password"],
+                     reply:"🔑 If you forgot your password, use the Forgot Password option or contact the administrator."
+                 },
+
+                 {
+                     keywords:["security"],
+                     reply:"🚨 For emergencies, contact Residence Security immediately or use the SOS feature."
+                 },
+
+                 {
+                     keywords:["laundry"],
+                     reply:"🧺 The laundry room is located on the ground floor."
+                 },
+
+                 {
+                     keywords:["study room"],
+                     reply:"📚 The study room is open 24 hours for registered students."
+                 },
+
+                 {
+                     keywords:["admin"],
+                     reply:"👨‍💼 You can contact the residence administrator during office hours."
+                 },
+
+                 {
+                     keywords:["thank","thanks"],
+                     reply:"😊 You're welcome!"
+                 },
+
+                 {
+                     keywords:["bye"],
+                     reply:"👋 Goodbye! Have a wonderful day."
+                 }
+
+             ];
+
+             function toggleChat(){
+
+                 const chat=document.getElementById("chatWindow");
+
+                 if(chat.style.display==="flex"){
+
+                     chat.style.display="none";
+
+                 }else{
+
+                     chat.style.display="flex";
+
+                     if(document.getElementById("chatMessages").innerHTML===""){
+
+                         addBotMessage("👋 Hello! I'm the timbev@ chatBot Assistant. Ask me anything about the residence.");
+
+                     }
+ 
+                 }
+
+             }
+
+             function handleKey(e){
+
+                 if(e.key==="Enter"){
+
+                     sendMessage();
+
+                 }
+
+             }
+
+             function sendMessage(){
+
+                 const input=document.getElementById("userInput");
+
+                 const message=input.value.trim();
+
+                 if(message==="") return;
+
+                 addUserMessage(message);
+
+                 input.value="";
+
+                 let reply="🤖 Sorry, I don't understand that. Please contact the residence office for assistance.";
+
+                 const lower=message.toLowerCase();
+                //   loop through the responses array to find a matching keyword
+                 for(let item of responses){
+
+                     for(let keyword of item.keywords){
+
+                         if(lower.includes(keyword)){
+
+                             reply=item.reply;
+
+                             break;
+
+                         }
+
+                     }
+
+                     if(reply===item.reply) break;
+
+                 }
+
+                 setTimeout(()=>{
+
+                     addBotMessage(reply);
+
+                 },500);
+
+             }
+
+             function addUserMessage(text){
+
+                 const messages=document.getElementById("chatMessages");
+
+                 messages.innerHTML+=`<div class="user">${text}</div>`;
+
+                 messages.scrollTop=messages.scrollHeight;
+
+             }
+
+             function addBotMessage(text){
+
+                 const messages=document.getElementById("chatMessages");
+
+                 messages.innerHTML+=`<div class="bot">${text}</div>`;
+
+                 messages.scrollTop=messages.scrollHeight;
+
+             }
+         </script>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+            <h2>DormDesk Admin</h2>
+        </div>
+
+        <ul>
+
+            <li onclick="GoToDashboard()">
+                   <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li onclick="GoToMaintanance()">             
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    Maintenance Requests
+                </a>
+            </li>
+
+            <li onclick= "GoToADMINSTUDENTS()">               
+                    <i class="fa-solid fa-bell"></i>
+                    Students
+                </a>
+            </li>
+
+            <li onclick="GoToProfileADMIN()">
+                    <i class="fa-solid fa-user"></i>
+                    Profile
+                </a>
+            </li>
+             <li onclick="ADMINlogout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main -->
+
+    <div class="main">
+
+        <div class="header">
+
+            <h1>Maintenance Requests Management</h1>
+
+            <p>
+                View reported issues and update residents
+                on maintenance progress.
+            </p>
+
+        </div>
+
+        <!-- Statistics -->
+
+        <div class="stats">
+
+            <div class="card">
+                <h3>Total Requests</h3>
+                <span>12</span>
+            </div>
+
+            <div class="card">
+                <h3>In Progress</h3>
+                <span>5</span>
+            </div>
+
+            <div class="card">
+                <h3>Completed</h3>
+                <span>4</span>
+            </div>
+
+        </div>
+
+        <!-- Request Card -->
+
+        <div id="requestsContainer">
+
+            <h3>Broken Light Bulb</h3>
+
+            <p><strong>Resident:</strong> Musa Mashimbyi</p>
+
+            <p><strong>Category:</strong> Electrical</p>
+
+            <p><strong>Location:</strong> Room B12</p>
+
+            <p><strong>Description:</strong>
+                Corridor light is not working.
+            </p>
+
+
+            <br>
+
+            <span class="status pending"
+            id="status1">Pending</span>
+
+            <select title="Status" id="statusSelect1">
+
+                <option value="Pending">
+                    Pending
+                </option>
+
+                <option value="In Progress">
+                    In Progress
+                </option>
+
+                <option value="Completed">
+                    Completed
+                </option>
+
+            </select>
+
+            <textarea
+                id="comment1"
+                rows="4"
+                placeholder="Write progress update..."
+            ></textarea>
+
+            <button onclick="updateRequest(1)">
+                Update Request
+            </button>
+
+            <div class="update-box"
+            id="updateBox1">
+
+                No updates yet.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Chat Button
+<div id="chatButton" onclick="toggleChat()">
+    💬
+</div>
+
+Chat Window
+<div id="chatWindow">
+
+    <div id="chatHeader">
+        <span>🤖 DormDesk Bot</span>
+        <button onclick="toggleChat()">✖</button>
+    </div>
+
+    <div id="chatMessages"></div>
+
+    <div id="chatInputArea">
+
+        <input
+            type="text"
+            id="userInput"
+            placeholder="Ask me anything..."
+            onkeypress="handleKey(event)"
+        >
+
+        <button onclick="sendMessage()">
+            Send
+        </button>
+
+    </div> -->
+
+<!-- </div> -->
+</body>
+
+<script>
+
+     function GoToDashboard() {
+        window.location.href = "INDEX.ADMINCONTENT.html";
+     }
+     function GoToADMINSTUDENTS(){
+        window.location.href = "INDEX.ADMINSTUDENTS.html";
+     }
+     function GoToMaintanance(){
+        window.location.href = "INDEX.ADMINUPDATEREPORT.html";
+     }
+     function GoToProfileADMIN(){
+        window.location.href = "INDEX.ADMINPROFILE.html";
+     }
+      function ADMINlogout(){
+         if(confirm("Are you sure you want to logout?")){
+             window.location.href="INDEX.ADMINLOGIN.html";
+         }
+    }
+
+async function loadIssues() {
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:3000/api/issues"
+        );
+
+        const issues = await response.json();
+
+        const container =
+            document.getElementById("requestsContainer");
+
+        container.innerHTML = "";
+
+        issues.forEach(issue => {
+
+            container.innerHTML += `
+
+                <div class="request">
+
+                    <h3>${issue.title}</h3>
+
+                    <p>
+                        <strong>Student:</strong>
+                        ${issue.studentNumber}
+                    </p>
+
+                    <p>
+                        <strong>Category:</strong>
+                        ${issue.category}
+                    </p>
+
+                    <p>
+                        <strong>Location:</strong>
+                        ${issue.location}
+                    </p>
+
+                    <p>
+                        <strong>Description:</strong>
+                        ${issue.description}
+                    </p>
+
+                    <p>
+                        <strong>Status:</strong>
+                        ${issue.status}
+                    </p>
+
+                    <select id="status${issue.id}">
+                        <option value="Pending">Pending</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+
+                    <textarea
+                        id="comment${issue.id}"
+                        placeholder="Admin update..."
+                    >${issue.adminComment || ""}</textarea>
+
+                    <button onclick="updateIssue(${issue.id})">
+                        Update Issue
+                    </button>
+
+                    <div class="update-box">
+                        ${issue.adminComment || "No updates yet"}
+                    </div>
+
+                </div>
+
+            `;
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+
+}
+
+async function updateIssue(id) {
+
+    const status =
+        document.getElementById(
+            "status" + id
+        ).value;
+
+    const comment =
+        document.getElementById(
+            "comment" + id
+        ).value;
+
+    const response = await fetch(
+        `http://localhost:3000/api/issues/${id}/update`,
+        {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                status,
+                comment
+            })
+        }
+    );
+
+    const data = await response.json();
+
+    alert(data.message);
+
+    loadIssues();
+}
+
+loadIssues();
+
+</script>
+
+</html>

@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+     <html lang="en">
+         <head>
+             <meta charset="UTF-8">
+             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+             <title>DormDesk</title>
+
+             <style>
+
+                 *{
+                 margin:0;
+                 padding:0;
+                 box-sizing:border-box;
+                 font-family:'Segoe UI',sans-serif;
+                 }
+                 /* style for page hikwayo */
+                 body{
+                     min-height:100vh;
+                     background:linear-gradient(135deg,#053F50,#118A8C,#29C7C9);
+                     padding:30px;
+                 }
+
+                 /*STYLE XA HEADER */
+
+                 header{
+                     max-width:1200px;
+                     margin:auto;
+                     margin-bottom:30px;
+                     display:flex;
+                     justify-content:space-between;
+                     align-items:center;
+                     padding:20px 30px;
+                     background:rgba(255,255,255,.12);
+                     -webkit-backdrop-filter:blur(12px);
+                     backdrop-filter:blur(12px);
+                     border-radius:20px;
+                     border:1px solid rgba(255,255,255,.2);
+                 }
+
+                 .logo{
+                     color:white;
+                     font-size:32px;
+                     font-weight:bold;
+                 }
+
+                 .theme-btn{
+                     border:none;
+                     padding:10px 20px;
+                     border-radius:10px;
+                     background:white;
+                     cursor:pointer;
+                     font-weight:bold;
+                 }
+
+                 /* Hero */
+
+                 .hero{
+                     max-width:1200px;
+                     margin:auto;
+                     margin-bottom:30px;
+
+                     display:flex;
+                     justify-content:space-between;
+                     align-items:center;
+                     gap:40px;
+
+                     padding:60px;
+
+                     /* background:rgba(255,255,255,.12); */
+                     background-image:url("https://media.licdn.com/dms/image/v2/D4D22AQH44jp7Amtv9w/feedshare-shrink_800/B4DZ9XCu2XH0Ac-/0/1783871762136?e=1791417600&v=beta&t=Yg_4v0i2MlZC2j9hZ6DqnzRAyb3taBPZxX7m1gGoqbc");
+                     background-size:cover;
+                     -webkit-backdrop-filter:blur(12px);
+                     backdrop-filter:blur(12px);
+                     border-radius:25px;
+                     border:1px solid rgba(255,255,255,.2);             
+                 }
+
+                 .right{
+                     flex:1;
+                 }
+
+                 .right h1{
+                     color:rgb(7, 84, 77);
+                     font-size:58px;
+                     margin-bottom:20px;
+                 }
+
+                 .right p{
+                     color:#086053;
+                     font-size:20px;
+                     margin-bottom:25px;
+                 }
+
+                 .features{
+                     list-style:none;
+                     margin-bottom:35px;
+                 }
+
+                 .features li{
+                     color:rgb(6, 83, 73);
+                     margin-bottom:12px;
+                     font-size:18px;
+                 }
+
+                 .features li::before{
+                     content:"✔";
+                     color:#049242;
+                     font-weight:bold;
+                     margin-right:10px;
+                 }
+
+                 .button-group{
+                     display:flex;
+                     flex-direction:row; /* side-by-side */
+                     gap:30px;
+                     margin-top:30px;
+                     justify-content:center; /* center buttons */
+                     align-items:center;
+                 }
+
+                 .big-btn{
+                     width:180px;
+                     height:75px;
+
+                     border:none;
+                     border-radius:15px;
+
+                     font-size:20px;
+                     font-weight:bold;
+
+                     cursor:pointer;
+                     transition:0.3s;
+                 }
+
+                 .student{
+                     background:#29C7C9;
+                     color:#053F50;
+                 }
+
+                 .admin{
+                     background:#29C7C9;
+                     color:#053F50;
+                 }
+
+                 .big-btn:hover{
+                     transform:translateY(-5px);
+                     box-shadow:0 10px 20px rgba(0,0,0,0.2);
+                 }
+
+                 .left{
+                     flex:1;
+                     display:flex;
+                     justify-content:center;
+                 }
+
+                 .left img{
+                     width:900px;
+                     max-width:100%;
+                     height:900;
+                 }
+
+                   /* SECTIONS */
+                   /* CONTAINER HOLDING BOTH CARDS */
+
+                 .info-section{
+                     max-width:1200px;
+                     margin:30px auto;
+
+                     display:flex;
+                     gap:30px;
+
+                     justify-content:center;
+                     align-items:stretch;
+
+                     flex-wrap:wrap;
+                 }
+
+                  /* TRENDING CARD */
+
+                 .trending-container{
+                     flex:1;
+                     min-width:350px;
+
+                     padding:30px;
+
+                     background:rgba(255,255,255,.12);
+                     /* background-image:url("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/91/b3/40/premierregent-exterior.jpg?w=700&h=-1&s=1"); */
+
+                     backdrop-filter:blur(12px);
+                     -webkit-backdrop-filter:blur(12px);
+
+                     border:1px solid rgba(255,255,255,.2);
+
+                     border-radius:20px;
+
+                     box-shadow:0 8px 25px rgba(0,0,0,.15);
+                 }
+
+                  /* ABOUT CARD */
+
+                 .about-container{
+                     flex:1;
+                     min-width:350px;
+
+                     padding:30px;
+
+                     background:rgba(255,255,255,.12);
+
+                     backdrop-filter:blur(12px);
+                     -webkit-backdrop-filter:blur(12px);
+
+                     border:1px solid rgba(255,255,255,.2);
+
+                     border-radius:20px;
+
+                     box-shadow:0 8px 25px rgba(0,0,0,.15);
+                 }
+
+                  /* HEADINGS */
+
+                 .trending-container h2,
+                 .about-container h2{
+                     color:white;
+                     margin-bottom:20px;
+                 }
+
+                 /* LIST */
+
+                 .trending-list{
+                     list-style:none;
+                 }
+
+                 .trending-list li{
+                     margin-bottom:15px;
+                     color:white;
+                     font-size:18px;
+                 }
+
+                  /* PARAGRAPHS */
+
+                 .about-container p{
+                     color:white;
+                     line-height:1.8;
+                     font-size:17px;
+                 }
+
+                   /* MOBILE RESPONSIVE */
+
+                  @media(max-width:900px){
+
+                     .info-section{
+                         flex-direction:column;
+                     }
+
+                     .trending-container,
+                     .about-container{
+                         width:100%;
+                      }
+
+                  }
+
+                   /* FAQ */
+
+                 .faq-item{
+                     margin-bottom:15px;
+                 }
+
+                 .faq-question{
+                     background:rgba(248, 246, 246, 0.929);
+                     color:rgb(49, 202, 197);
+                     padding:15px;
+                     border-radius:10px;
+                     cursor:pointer;
+                     font-weight:bold;
+                 }
+
+                 .faq-answer{
+                     display:none;
+                     color:rgb(20, 182, 163);
+                     background:rgba(255, 255, 255, 0.973);
+                     padding:15px;
+                     margin-top:2px;
+                     border-radius:0 0 10px 10px;
+                 }
+
+                 /* REVIEWS */
+                 /* 
+                  .review-container{
+                      display:flex;
+                     gap:20px;
+                     flex-wrap:wrap;
+                 }
+
+                 .review{
+                     flex:1;
+                     min-width:250px;
+
+                     background:rgba(255, 255, 255, 0.916);
+
+                     padding:20px;
+                     /* border-radius:15px; */
+
+                     /* border:1px solid rgba(255,255,255,.2); */
+                 /* } */
+
+                 .review p{
+                     margin-bottom:15px;
+                 }
+
+                  /* FOOTER */
+
+                 footer{
+                     max-width:1200px;
+                     margin:30px auto 0;
+
+                     text-align:center;
+                     color:rgb(234, 239, 238);
+
+                     padding:20px;
+
+                     background:rgba(255,255,255,.12);
+                     -webkit-backdrop-filter:blur(12px);
+                     backdrop-filter:blur(12px);
+
+                     border-radius:20px;
+                     border:1px solid rgba(255,255,255,.2);
+                 }
+
+                   /* DARK MODE */
+
+                 body.dark{
+                     background:linear-gradient(
+                     135deg,
+                     #020617,
+                     #111827,
+                     #1e293b);
+                 }
+
+                   /* RESPONSIVE */
+
+                 @media(max-width:900px){
+
+                     .hero{
+                         flex-direction:column-reverse;
+                         text-align:center;
+                     }
+
+                     .left h1{
+                         font-size:42px;
+                     }
+
+                     .buttons{
+                         justify-content:center;
+                         flex-wrap:wrap;
+                     }
+
+                     .right img{
+                         width:280px;
+                     }
+
+                     .review-container{
+                         flex-direction:column;
+                     }
+
+                 }
+
+
+                   /* for the AI chatbot */
+                 /* Floating Button */
+
+                 #chatButton{
+
+                     position:fixed;
+                     bottom:25px;
+                     right:25px;
+
+                     width:65px;
+                     height:65px;
+
+                     background:#0f4c5c;
+                     color:white;
+
+                     border-radius:50%;
+
+                     display:flex;
+                     justify-content:center;
+                     align-items:center;
+
+                     font-size:30px;
+
+                     cursor:pointer;
+
+                     box-shadow:0 5px 20px rgba(0,0,0,.3);
+
+                     z-index:999;
+
+                 }
+
+                 #chatButton:hover{
+
+                     background:#118A8C;
+
+                 }
+
+                   /* Chat Window */
+
+                 #chatWindow{
+
+                     position:fixed;
+
+                     bottom:100px;
+                     right:25px;
+
+                     width:360px;
+                     height:520px;
+
+                     background:white;
+
+                     border-radius:15px;
+
+                     display:none;
+
+                     flex-direction:column;
+
+                     overflow:hidden;
+
+                     box-shadow:0 8px 30px rgba(0,0,0,.25);
+
+                     z-index:999;
+
+                 }
+
+                 /* Header */
+
+                 #chatHeader{
+
+                     background:#0f4c5c;
+
+                     color:white;
+
+                     padding:15px;
+
+                     display:flex;
+
+                     justify-content:space-between;
+
+                     align-items:center;
+
+                     font-weight:bold;
+
+                 }
+
+                 #chatHeader button{
+
+                     background:none;
+
+                     border:none;
+
+                     color:white;
+
+                     font-size:18px;
+
+                     cursor:pointer;
+
+                 }
+
+                   /* Messages */
+
+                 #chatMessages{
+
+                     flex:1;
+
+                     padding:15px;
+
+                     overflow-y:auto;
+
+                     background:#f6f6f6;
+
+                 }
+
+                 .user{
+
+                     background:#118A8C;
+
+                     color:white;
+
+                     padding:10px;
+
+                     margin:8px 0;
+
+                     border-radius:12px;
+
+                     width:fit-content;
+
+                     margin-left:auto;
+
+                     max-width:80%;
+
+                 }
+
+                 .bot{
+
+                     background:#e2e2e2;
+
+                     padding:10px;
+
+                     margin:8px 0;
+
+                     border-radius:12px;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+                     max-width:80%;
+
+                 }
+
+                    /* Input */
+
+                 #chatInputArea{
+
+                     display:flex;
+
+                     padding:10px;
+
+                     background:white;
+
+                 }
+
+                 #chatInputArea input{
+
+                     flex:1;
+
+                     padding:10px;
+
+                     border:1px solid #ccc;
+
+                     border-radius:8px;
+
+                 }
+
+                 #chatInputArea button{
+
+                     margin-left:10px;
+
+                     background:#0f4c5c;
+
+                     color:white;
+
+                     border:none;
+
+                     padding:10px 15px;
+
+                     border-radius:8px;
+
+                     cursor:pointer;
+
+                 }
+
+                 #chatInputArea button:hover{
+
+                     background:#118A8C;
+
+                 }
+
+  
+                  /* Navigation Bar */
+                 nav {
+                     background:rgba(255,255,255,.12);
+                     padding: 15px 40px;
+                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                 }
+
+                  /* Remove default list styling */
+                 nav ul {
+                     list-style: none;
+                     display: flex;
+                     justify-content: center;
+                     align-items: center;
+                     gap: 30px;
+                     margin: 0;
+                     padding: 0;
+                 }
+
+                  /* Navigation links */
+                 nav ul li a {
+                     text-decoration: none;
+                     color: white;
+                     font-size: 16px;
+                     font-weight: 600;
+                     padding: 8px 15px;
+                     border-radius: 8px;
+                     transition: all 0.3s ease;
+                 }
+
+                   /* Hover effect */
+                 nav ul li a:hover {
+                     background: #60a5fa;
+                     background:#1f6f6d;
+                     transform: translateY(-2px);
+                 }
+
+                  /* Active link */
+                 nav ul li a.active {
+                     background: #2563eb;
+                     color: white;
+                 }
+
+                 /* Responsive menu */
+                 @media (max-width: 768px) {
+                     nav ul {
+                         flex-direction: column;
+                         gap: 15px;
+                     }
+                 }
+ 
+
+
+
+             </style>
+         </head>
+     
+         <!-- Script for AI chatbot -->
+
+         <script>
+             const responses = [
+
+                 {
+                     keywords:["hello","hi","hey"],
+                     reply:"👋 Hello! Welcome to DormDesk. How can I help you today?"
+                 },
+
+                 {
+                     keywords:["how are you doing","I am fine","I am good thanks and you"],
+                     reply:"👋 I am also good thanks. How can I help you today?"
+                 },
+
+                 {
+                     keywords:["wifi","internet"],
+                     reply:"📶 If your Wi-Fi is not working, submit a report under Network Issues."
+                 },
+
+                 {
+                     keywords:["water","hot water"],
+                     reply:"🚿 Please report hot water or plumbing problems under Plumbing."
+                 },
+
+                 {
+                     keywords:["electricity","power"],
+                     reply:"💡 Report electricity problems under Electrical Issues."
+                 },
+
+                 {
+                     keywords:["room"],
+                     reply:"🏠 Please include your Block and Room Number when submitting a report."
+                 },
+
+                 {
+                     keywords:["report"],
+                     reply:"📝 Go to Report Issue, choose a category, describe the problem and click Submit."
+                 },
+
+                 {
+                     keywords:["track"],
+                     reply:"📄 You can track your reports from the 'My Reports' page."
+                 },
+
+                 {
+                     keywords:["password"],
+                     reply:"🔑 If you forgot your password, use the Forgot Password option or contact the administrator."
+                 },
+
+                 {
+                     keywords:["security"],
+                     reply:"🚨 For emergencies, contact Residence Security immediately or use the SOS feature."
+                 },
+
+                 {
+                     keywords:["laundry"],
+                     reply:"🧺 The laundry room is located on the ground floor."
+                 },
+
+                 {
+                     keywords:["study room"],
+                     reply:"📚 The study room is open 24 hours for registered students."
+                 },
+
+                 {
+                     keywords:["admin"],
+                     reply:"👨‍💼 You can contact the residence administrator during office hours."
+                 },
+
+                 {
+                     keywords:["thank","thanks"],
+                     reply:"😊 You're welcome!"
+                 },
+
+                 {
+                     keywords:["bye"],
+                     reply:"👋 Goodbye! Have a wonderful day."
+                 }
+
+             ];
+
+             function toggleChat(){
+
+                 const chat=document.getElementById("chatWindow");
+
+                 if(chat.style.display==="flex"){
+
+                     chat.style.display="none";
+
+                 }else{
+
+                     chat.style.display="flex";
+
+                     if(document.getElementById("chatMessages").innerHTML===""){
+
+                         addBotMessage("👋 Hello! I'm the timbev@ chatBot Assistant. Ask me anything about the residence.");
+
+                     }
+ 
+                 }
+
+             }
+
+             function handleKey(e){
+
+                 if(e.key==="Enter"){
+
+                     sendMessage();
+
+                 }
+
+             }
+
+             function sendMessage(){
+
+                 const input=document.getElementById("userInput");
+
+                 const message=input.value.trim();
+
+                 if(message==="") return;
+
+                 addUserMessage(message);
+
+                 input.value="";
+
+                 let reply="🤖 Sorry, I don't understand that. Please contact the residence office for assistance.";
+
+                 const lower=message.toLowerCase();
+                //   loop through the responses array to find a matching keyword
+                 for(let item of responses){
+
+                     for(let keyword of item.keywords){
+
+                         if(lower.includes(keyword)){
+
+                             reply=item.reply;
+
+                             break;
+
+                         }
+
+                     }
+
+                     if(reply===item.reply) break;
+
+                 }
+
+                 setTimeout(()=>{
+
+                     addBotMessage(reply);
+
+                 },500);
+
+             }
+
+             function addUserMessage(text){
+
+                 const messages=document.getElementById("chatMessages");
+
+                 messages.innerHTML+=`<div class="user">${text}</div>`;
+
+                 messages.scrollTop=messages.scrollHeight;
+
+             }
+
+             function addBotMessage(text){
+
+                 const messages=document.getElementById("chatMessages");
+
+                 messages.innerHTML+=`<div class="bot">${text}</div>`;
+
+                 messages.scrollTop=messages.scrollHeight;
+
+             }
+         </script>
+
+         <body>
+
+             <header>
+
+                 <div class="logo">DormDesk</div>
+
+                 <!-- <button id="themeToggle" class="theme-btn">
+                 Dark
+                 </button> -->
+                 <nav>
+                     <ul>
+                         <li><a href= "INDEX.LANDINGPAGE.html">Home</a></li>
+                         <li><a href="#trending">Trending Issues</a></li>
+                         <li><a href ="#about">About</a></li>
+                         <li><a href = "#FAQ">Help & FAQ</a></li>
+                         <li><a href = "#reviews">Reviews</a></li>
+                     </ul>
+                 </nav>
+
+             </header>
+
+             <!-- HERO -->
+
+             <section class="hero">
+
+                 <div class="left">
+                     <!-- <img src="https://media.licdn.com/dms/image/v2/D4D22AQEbs0bfRPxUlg/feedshare-image-high-res/B4DZ9QhRV6I4AU-/0/1783762327151?e=1785369600&v=beta&t=EezE_W6vBGV7nps9fxPhp6qCe2PCnTk6QWB6OxT-uL0" alt="DormDesk"> -->
+                 </div>
+
+                 <div class="right">
+
+                     <h1>Welcome to DormDesk</h1>
+
+                     <p>
+                         Smart accommodation management for students and administrators.
+                     </p>
+
+                     <ul class="features">
+                         <li>Submit maintenance requests</li>
+                         <li>Track progress in real-time</li>
+                         <li>Fast communication with admins</li>
+                         <li>Simple residence management</li>
+                     </ul>
+                     <br>
+                     <br>
+                     <p><strong>Select your role to get started!</strong></p>
+
+                     <div class="button-group">
+                         <button class="big-btn student" onclick="GettingStarted()">Student</button>
+                         <button class="big-btn admin" onclick="aDMINlogin()">Admin</button>
+                     </div>
+
+                 </div>
+
+    
+
+             </section>
+
+             <!-- TRENDING & ABOUT SECTION -->
+
+             <div class="info-section">
+
+                 <!-- Trending Issues -->
+                 <div class="trending-container" id="trending">
+
+                     <h2>Trending Issues</h2>
+
+                     <ul class="trending-list">
+                         <li>⚠️ Room allocation delays</li>
+                         <li>🔧 Maintenance requests pending</li>
+                         <li>🛏️ Limited bed spaces available</li>
+                         <li>💡 Electricity outages reported</li>
+                     </ul>
+
+                 </div>
+
+                 <!-- About DormDesk -->
+                 <div class="about-container" id="about">
+
+                     <h2>About DormDesk</h2>
+
+                     <p>
+                          DormDesk is a smart student accommodation management platform
+                         designed to simplify maintenance reporting and communication
+                         between students and residence administrators.
+                     </p>
+
+                     <br>
+
+                     <p>
+                         Students can report maintenance issues, track request progress,
+                         and receive updates while administrators manage housing
+                         operations more efficiently.
+                     </p>
+
+                 </div>
+
+             </div>
+
+             <!-- FAQ -->
+
+             <div class="section-container" id="FAQ">
+
+                 <h2>Help & FAQ</h2>
+
+                 <div class="faq-item">
+                     <div class="faq-question" onclick="toggleFAQ(this)">
+                         + What is DormDesk?
+                     </div>
+
+                     <div class="faq-answer">
+                         DormDesk is a platform that helps students report and monitor accommodation issues.
+                     </div>
+                 </div>
+
+                 <div class="faq-item">
+                     <div class="faq-question" onclick="toggleFAQ(this)">
+                         + How do I report an issue?
+                     </div>
+
+                     <div class="faq-answer">
+                         Login as a student and submit a maintenance request from your dashboard.
+                     </div>
+                 </div>
+
+                 <div class="faq-item">
+                     <div class="faq-question" onclick="toggleFAQ(this)">
+                         + Who can use DormDesk?
+                     </div>
+
+                     <div class="faq-answer">
+                         Students, administrators and residence staff.
+                     </div>
+                 </div>
+
+             </div>
+  
+ 
+             <!-- Chat Button -->
+             <div id="chatButton" onclick="toggleChat()">
+                 💬
+             </div>
+
+             <!-- Chat Window -->
+             <div id="chatWindow">
+
+                 <div id="chatHeader">
+                     <span>🤖 timbev@ Bot</span>
+                     <button onclick="toggleChat()">✖</button>
+                 </div>
+
+                 <div id="chatMessages"></div>
+
+                 <div id="chatInputArea">
+
+                     <input
+                         type="text"
+                         id="userInput"
+                         placeholder="Ask me anything..."
+                         onkeypress="handleKey(event)">
+
+                     <button onclick="sendMessage()">Send</button>
+
+                 </div>
+
+             </div>
+
+
+               <!-- STUDENT REVIEWS -->
+
+             <div class="section-container" id="reviews">
+
+                 <h2>Student Reviews</h2>
+
+                 <div class="review-container">
+
+
+                     <div class="review">
+                         <p>
+                             DormDesk made reporting maintenance issues quick and easy.
+                         </p>
+                         <strong>- Sarah M.</strong>
+                     </div>
+
+                     <div class="review">
+                         <p>
+                             Tracking requests is much better than the old paper process.
+                         </p>
+                         <strong>- David K.</strong>
+                     </div>
+
+                     <div class="review">
+                         <p>
+                             A simple and professional system for residence students.
+                         </p>
+                         <strong>- Musa T.</strong>
+                     </div>
+
+                 </div>
+
+             </div>
+
+             <footer>
+                 © 2026 DormDesk • Student Accommodation System
+             </footer>
+
+             <script>
+
+                 function toggleFAQ(element){
+
+                     let answer = element.nextElementSibling;
+
+                     if(answer.style.display === "block"){
+                         answer.style.display = "none";
+                     }
+                     else{
+                         answer.style.display = "block";
+                     }
+
+                 }
+
+                 const btn = document.getElementById("themeToggle");
+
+                 btn.addEventListener("click",()=>{
+
+                     document.body.classList.toggle("dark");
+
+                     if(document.body.classList.contains("dark")){
+                         btn.innerHTML="☀️ Light";
+                     }else{
+                         btn.innerHTML="🌙 Dark";
+                     }
+
+                 });
+
+                 function GettingStarted(){
+                     window.location.href = "INDEX.StudentLOGIN.html";
+                 }
+
+                 function aDMINlogin(){
+                     window.location.href ="INDEX.ADMINLOGIN.html";
+                 }
+
+             </script>
+
+         </body>
+</html>

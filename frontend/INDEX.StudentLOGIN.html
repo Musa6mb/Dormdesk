@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+     <html lang="en">
+         <head>
+             <title>Login</title>
+             <meta charset="UTF-8">
+             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+             <style>
+
+                 *{
+                     margin:0;
+                     padding:0;
+                     box-sizing:border-box;
+                     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                     }
+
+                 body{
+                     min-height:100vh;
+                      background:linear-gradient(135deg,#053F50,#118A8C,#29C7C9); 
+                     /*background-image:"https://media.licdn.com/dms/image/v2/D4D22AQFFEYM5TCBrfA/feedshare-image-high-res/B4DZ9XL5JhJAAY-/0/1783874163524?e=1787184000&v=beta&t=61WHnj_OfVf0CupimPQuFiNzjEZF_NGQCteC5XP6Syw" alt=;*/
+                     display:flex;
+                     flex-direction:column;
+                 }
+                  /* HEADER */
+
+                 header{
+                     width:100%;
+                     background:#0f4c5c;
+                     padding:15px 30px;
+                     display:flex;
+                     justify-content:space-between;
+                     align-items:center;
+                     box-shadow:0 2px 10px rgba(0,0,0,0.1);
+                 }
+
+                 .logo{
+                     display:flex;
+                     align-items:center;
+                     gap:15px;
+                 }
+
+                 .logo img{
+                     width:60px;
+                     height:60px;
+                     border-radius:50%;
+                     object-fit:cover;
+                     background:white;
+                 }
+                 .logo-container h1{
+                     font-size:30px;
+                 }
+
+                 .theme-btn{
+                     padding:10px 20px;
+                     border:none;
+                     border-radius:8px;
+                     background:#1f6f6d;
+                     color:white;
+                     cursor:pointer;
+                 }
+
+                 .theme-btn:hover{
+                     background:#155a58;
+                 }
+
+                     /* nav menu */
+                 .home-btn {
+                     background: none;
+                     border: none;
+                     color: white;
+                     padding: 10px 12px;
+                     cursor: pointer;
+                     font-size: 1rem;
+                     border-radius: 4px;
+                     transition: background-color 0.3s ease;
+                 }
+
+                 .home-btn:hover {
+                     background:#1f6f6d;
+                 }
+
+                  /* CENTER THE LOGIN BOX */
+
+                 .main-content{
+                     flex:1;
+                     display:flex;
+                     justify-content:center;
+                     align-items:center;
+                     padding:30px;
+                 }
+
+                 /* FOOTER */
+
+                 footer{
+                     width:100%;
+                     background:rgb(11, 119, 124);
+                     text-align:center;
+                     padding:15px;
+                     color:#e6ecec;
+                     box-shadow:0 -2px 10px rgba(0,0,0,0.1);
+                 }
+
+                 .container{
+                     display:flex;
+                     width:900px;
+                     height:520px;
+                     background:#f3f4f6;
+                     border-radius:15px;
+                     box-shadow:0 10px 25px rgba(0,0,0,0.15);
+                     overflow:hidden;
+                 }
+
+                 .left{
+                     width:50%;
+                     background:#e6efee;
+                     padding:40px;
+                     display:flex;
+                     flex-direction:column;
+                     justify-content:center;
+                 }
+
+                 .left h1{
+                     font-size:34px;
+                     color:#1f4d4c;
+                     margin-bottom:10px;
+                 }
+
+                 .left p{
+                     color:#4b6b6b;
+                 }
+
+                 .right{
+                     width:50%;
+                     background:white;
+                     padding:40px;
+                     display:flex;
+                     flex-direction:column;
+                     justify-content:center;
+                 }
+
+                 .right h2{
+                     font-size:26px;
+                     color:#1f4d4c;
+                     margin-bottom:5px;
+                 }
+
+                 .subtitle{
+                     font-size:14px;
+                     color:#666;
+                     margin-bottom:20px;
+                 }
+
+                 .input-group{
+                     margin-bottom:15px;
+                 }
+
+                 input{
+                     width:100%;
+                     padding:12px;
+                     border-radius:8px;
+                     border:1px solid #ccc;
+                 }
+
+                 input:focus{
+                     border-color:#1f6f6d;
+                     outline:none;
+                 }
+
+                 .login-btn{
+                     width:100%;
+                     padding:12px;
+                     background:#1f6f6d;
+                     color:white;
+                     border:none;
+                     border-radius:8px;
+                     font-weight:bold;
+                     cursor:pointer;
+                 }
+
+                 .login-btn:hover{
+                     background:#155a58;
+                 }
+
+                 .register{
+                     text-align:center;
+                     margin-top:15px;
+                 }
+
+                 .register a{
+                     text-decoration:none;
+                     color:#1f6f6d;
+                 }
+
+                 #message{
+                     margin-top:15px;
+                     font-weight:bold;
+                     text-align:center;
+                 }
+                 /* footer{
+                     max-width:1200px;
+                     margin:30px auto 0;
+
+                     text-align:center;
+                     color:rgb(6, 120, 94);
+
+                     padding:20px;
+
+                     background:rgba(255, 255, 255, 0.927);
+                     -webkit-backdrop-filter:blur(12px);
+                     backdrop-filter:blur(12px);
+
+                     border-radius:20px;
+                     border:1px solid rgba(255,255,255,.2);
+                 } */
+
+                 .forgetpassword{
+                     text-align:center;
+                     margin-top:15px;
+                 }
+
+                 .forgetpassword a{
+                     text-decoration:none;
+                     color:#1f6f6d;
+                 }
+
+             </style>
+         </head>
+
+         <body>
+             <header>
+
+                 <div class="logo">
+                     <img src ="https://media.licdn.com/dms/image/v2/D4D22AQFFEYM5TCBrfA/feedshare-shrink_800/B4DZ9XL5JhJAAg-/0/1783874163524?e=1793232000&v=beta&t=4VQEIzGHz869lh6hcS_Oli43YuD9uS1R39rXvNjmP8E" alt="dorm desk">
+                     <h1>DormDesk</h1>
+                 </div>
+
+                 <!-- <button id="themeToggle" class="theme-btn">
+                     🌙 Dark
+                 </button> -->
+
+                 <div class="home-btn" id="home">
+                     <button class="home-btn" onclick="window.location.href='INDEX.LANDINGPAGE.html'">
+                         Home
+                     </button>
+                 </div>
+
+             </header>
+
+             <div class="main-content">
+
+                 <div class="container">
+                     <div class="left">
+                         <img src="https://media.licdn.com/dms/image/v2/D4D22AQFFEYM5TCBrfA/feedshare-shrink_800/B4DZ9XL5JhJAAg-/0/1783874163524?e=1793232000&v=beta&t=4VQEIzGHz869lh6hcS_Oli43YuD9uS1R39rXvNjmP8E" alt="Dorm Desk">
+                         <h1>Dorm Desk</h1>
+                         <p>Your campus. Your community.<br>We're here to help.</p>
+                     </div>
+
+                     <div class="right">
+                         <h2>Student Login</h2>
+                         <p class="subtitle">Login using your Student Number.</p>
+
+                         <div class="input-group">
+                             <input
+                                 type="text"
+                                 id="studentNumber"
+                                 placeholder="Student Number">
+                         </div>
+
+                         <div class="input-group">
+                             <input
+                                 type="password"
+                                 id="password"
+                                 placeholder="Password"
+                                 required>
+                         </div>
+
+                         <button class="login-btn"onclick="studentLogin()">Log In</button>
+
+                         <div class="register">
+                             Don't have an account?
+                             <a href="INDEX.StudentREG.html">
+                                 Sign Up
+                             </a>            
+                         </div>
+                         <div class = "forgetpassword">
+                             <a href="INDEX.fogertPassSTUD.html">forget password</a>
+                         </div>
+
+                         <p id="message"></p>
+
+                     </div>
+
+                 </div>
+             </div>
+
+             <footer>
+                 <p>
+                     &copy; 2026 Dorm Desk App.All rights reseved.
+                 </p>
+             </footer>
+
+
+             <script>
+                async function studentLogin() {
+
+    const studentNumber =
+    document.getElementById("studentNumber").value;
+
+    const password =
+    document.getElementById("password").value;
+
+    const response = await fetch(
+        "http://localhost:3000/api/students/login",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                studentNumber,
+                password
+            })
+        }
+    );
+
+    const data = await response.json();
+
+    if(response.ok){
+
+    localStorage.setItem(
+        "loggedInStudent",
+        JSON.stringify(data.student)
+    );
+
+    localStorage.setItem(
+        "studentNumber",
+        data.student.studentNumber
+    );
+
+    window.location.href =
+    "INDEX.DASHBOARD.html";
+
+} else {
+
+        document.getElementById("message")
+        .innerHTML = data.message;
+    }
+}
+             </script>
+
+             <!-- <script>
+
+                function studentLogin(){
+
+    let studentNumber =
+        document.getElementById("studentNumber").value;
+
+    let password =
+        document.getElementById("password").value;
+
+    let studentData =
+        localStorage.getItem(studentNumber);
+
+    if(studentData === null){
+
+        document.getElementById("message").style.color =
+        "red";
+
+        document.getElementById("message").innerHTML =
+        "Account not found";
+
+        return;
+    }
+
+    let student = JSON.parse(studentData);
+
+    if(student.password === password){
+
+        localStorage.setItem(
+            "loggedInStudent",
+            student.studentNumber
+        );
+
+        document.getElementById("message").style.color =
+        "green";
+
+        document.getElementById("message").innerHTML =
+        "Login Successful";
+
+        setTimeout(function(){
+            window.location.href =
+            "student-dashboard.html";
+        },1000);
+
+    }else{
+
+        document.getElementById("message").style.color =
+        "red";
+
+        document.getElementById("message").innerHTML =
+        "Invalid Password";
+    }
+}
+function studentLogin(){
+    window.location.href = "INDEX.DASHBOARD.html";
+}
+
+             </script> -->
+
+         </body>
+</html>

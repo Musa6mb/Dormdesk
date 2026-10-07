@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DormDesk Marketplace</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#ececec;
+}
+
+.dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:230px;
+    background:#d8d8d8;
+    padding:20px;
+    box-shadow:3px 0 10px rgba(0,0,0,.1);
+    min-height:100vh;
+}
+
+.top-header{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:30px;
+    padding-bottom:15px;
+    border-bottom:1px solid #ddd;
+}
+
+.logo-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.logo-img{
+    width:80px;
+    height:80px;
+    object-fit:cover;
+    border-radius:12px;
+    border:3px solid #146f6a;
+    background:white;
+    padding:4px;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+.logo-container h1{
+    color:#146f6a;
+}
+
+.header-icons{
+    display:flex;
+    gap:20px;
+}
+
+.notification,
+.profile{
+    position:relative;
+    font-size:28px;
+    color:#146f6a;
+    cursor:pointer;
+}
+
+.badge{
+    position:absolute;
+    top:-8px;
+    right:-10px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:red;
+    color:white;
+    font-size:11px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.profile i{
+    font-size:40px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    padding:15px;
+    margin-bottom:12px;
+    background:white;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.sidebar li i{
+    margin-right:10px;
+    color:#146f6a;
+}
+
+.sidebar li:hover{
+    background:#146f6a;
+    color:white;
+}
+
+.sidebar li:hover i{
+    color:white;
+}
+
+.active{
+    background:#146f6a !important;
+    color:white;
+}
+
+.active i{
+    color:white !important;
+}
+
+ /* Chat Window */
+
+                 #chatWindow{
+
+                     position:fixed;
+
+                     bottom:100px;
+                     right:25px;
+
+                     width:360px;
+                     height:520px;
+
+                     background:white;
+
+                     border-radius:15px;
+
+                     display:none;
+
+                     flex-direction:column;
+
+                     overflow:hidden;
+
+                     box-shadow:0 8px 30px rgba(0,0,0,.25);
+
+                     z-index:999;
+
+                 }
+
+                 .dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:230px;
+    background:#d8d8d8;
+    padding:20px;
+    box-shadow:3px 0 10px rgba(0,0,0,.1);
+    min-height:100vh;
+}
+
+.top-header{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:30px;
+    padding-bottom:15px;
+    border-bottom:1px solid #ddd;
+}
+
+.logo-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.logo-img{
+    width:80px;
+    height:80px;
+    object-fit:cover;
+    border-radius:12px;
+    border:3px solid #146f6a;
+    background:white;
+    padding:4px;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+.logo-container h1{
+    color:#146f6a;
+}
+
+.header-icons{
+    display:flex;
+    gap:20px;
+}
+
+.notification,
+.profile{
+    position:relative;
+    font-size:28px;
+    color:#146f6a;
+    cursor:pointer;
+}
+
+.badge{
+    position:absolute;
+    top:-8px;
+    right:-10px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:red;
+    color:white;
+    font-size:11px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.profile i{
+    font-size:40px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    padding:15px;
+    margin-bottom:12px;
+    background:white;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.sidebar li i{
+    margin-right:10px;
+    color:#146f6a;
+}
+
+.sidebar li:hover{
+    background:#146f6a;
+    color:white;
+}
+
+.sidebar li:hover i{
+    color:white;
+}
+
+.active{
+    background:#146f6a !important;
+    color:white;
+}
+
+.active i{
+    color:white !important;
+}
+
+.main-content{
+    flex:1;
+    padding:30px;
+}
+
+                 /* Header */
+
+                 #chatHeader{
+
+                     background:#0f4c5c;
+
+                     color:white;
+
+                     padding:15px;
+
+                     display:flex;
+
+                     justify-content:space-between;
+
+                     align-items:center;
+
+                     font-weight:bold;
+
+                 }
+
+                 #chatHeader button{
+
+                     background:none;
+
+                     border:none;
+
+                     color:white;
+
+                     font-size:18px;
+
+                     cursor:pointer;
+
+                 }
+
+                   /* Messages */
+
+                 #chatMessages{
+
+                     flex:1;
+
+                     padding:15px;
+
+                     overflow-y:auto;
+
+                     background:#f6f6f6;
+
+                 }
+
+                 .user{
+
+                     background:#118A8C;
+
+                     color:white;
+
+                     padding:10px;
+
+                     margin:8px 0;
+
+                     border-radius:12px;
+
+                     width:fit-content;
+
+                     margin-left:auto;
+
+                     max-width:80%;
+
+                 }
+
+                 .bot{
+
+                     background:#e2e2e2;
+
+                     padding:10px;
+
+                     margin:8px 0;
+
+                     border-radius:12px;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+                     max-width:80%;
+
+                 }
+
+                    /* Input */
+
+                 #chatInputArea{
+
+                     display:flex;
+
+                     padding:10px;
+
+                     background:white;
+
+                 }
+
+                 #chatInputArea input{
+
+                     flex:1;
+
+                     padding:10px;
+
+                     border:1px solid #ccc;
+
+                     border-radius:8px;
+
+                 }
+
+                 #chatInputArea button{
+
+                     margin-left:10px;
+
+                     background:#0f4c5c;
+
+                     color:white;
+
+                     border:none;
+
+                     padding:10px 15px;
+
+                     border-radius:8px;
+
+                     cursor:pointer;
+
+                 }
+
+                 #chatInputArea button:hover{
+
+                     background:#118A8C;
+
+                 }
+
+                 .dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+/* MAIN CONTENT */
+
+.content{
+    flex:1;
+    padding:30px;
+}
+
+.dashboard-card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    margin-bottom:25px;
+}
+
+.dashboard-card h2{
+    color:#146f6a;
+    margin-bottom:10px;
+}
+
+.marketplace-items{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.item-card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.item-card h3{
+    color:#146f6a;
+    margin-bottom:10px;
+}
+
+.item-card p{
+    color:#555;
+    margin-bottom:15px;
+}
+
+
+.item-card button{
+    background:#146f6a;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.item-card button:hover{
+    background:#0f5652;
+}
+
+</style>
+</head>
+
+ <!-- Script for AI chatbot -->
+
+         <script>
+             const responses = [
+
+                 {
+                     keywords:["hello","hi","hey"],
+                     reply:"👋 Hello! Welcome to DormDesk. How can I help you today?"
+                 },
+
+                 {
+                     keywords:["how are you doing","I am fine","I am good thanks and you"],
+                     reply:"👋 I am also good thanks. How can I help you today?"
+                 },
+
+                 {
+                     keywords:["wifi","internet"],
+                     reply:"📶 If your Wi-Fi is not working, submit a report under Network Issues."
+                 },
+
+                 {
+                     keywords:["water","hot water"],
+                     reply:"🚿 Please report hot water or plumbing problems under Plumbing."
+                 },
+
+                 {
+                     keywords:["electricity","power"],
+                     reply:"💡 Report electricity problems under Electrical Issues."
+                 },
+
+                 {
+                     keywords:["room"],
+                     reply:"🏠 Please include your Block and Room Number when submitting a report."
+                 },
+
+                 {
+                     keywords:["report"],
+                     reply:"📝 Go to Report Issue, choose a category, describe the problem and click Submit."
+                 },
+
+                 {
+                     keywords:["track"],
+                     reply:"📄 You can track your reports from the 'My Reports' page."
+                 },
+
+                 {
+                     keywords:["password"],
+                     reply:"🔑 If you forgot your password, use the Forgot Password option or contact the administrator."
+                 },
+
+                 {
+                     keywords:["security"],
+                     reply:"🚨 For emergencies, contact Residence Security immediately or use the SOS feature."
+                 },
+
+                 {
+                     keywords:["laundry"],
+                     reply:"🧺 The laundry room is located on the ground floor."
+                 },
+
+                 {
+                     keywords:["study room"],
+                     reply:"📚 The study room is open 24 hours for registered students."
+                 },
+
+                 {
+                     keywords:["admin"],
+                     reply:"👨‍💼 You can contact the residence administrator during office hours."
+                 },
+
+                 {
+                     keywords:["thank","thanks"],
+                     reply:"😊 You're welcome!"
+                 },
+
+                 {
+                     keywords:["bye"],
+                     reply:"👋 Goodbye! Have a wonderful day."
+                 }
+
+             ];
+
+             function toggleChat(){
+
+                 const chat=document.getElementById("chatWindow");
+
+                 if(chat.style.display==="flex"){
+
+                     chat.style.display="none";
+
+                 }else{
+
+                     chat.style.display="flex";
+
+                     if(document.getElementById("chatMessages").innerHTML===""){
+
+                         addBotMessage("👋 Hello! I'm the timbev@ chatBot Assistant. Ask me anything about the residence.");
+
+                     }
+ 
+                 }
+
+             }
+
+             function handleKey(e){
+
+                 if(e.key==="Enter"){
+
+                     sendMessage();
+
+                 }
+
+             }
+
+             function sendMessage(){
+
+                 const input=document.getElementById("userInput");
+
+                 const message=input.value.trim();
+
+                 if(message==="") return;
+
+                 addUserMessage(message);
+
+                 input.value="";
+
+                 let reply="🤖 Sorry, I don't understand that. Please contact the residence office for assistance.";
+
+                 const lower=message.toLowerCase();
+                //   loop through the responses array to find a matching keyword
+                 for(let item of responses){
+
+                     for(let keyword of item.keywords){
+
+                         if(lower.includes(keyword)){
+
+                             reply=item.reply;
+
+                             break;
+
+                         }
+
+                     }
+
+                     if(reply===item.reply) break;
+
+                 }
+
+                 setTimeout(()=>{
+
+                     addBotMessage(reply);
+
+                 },500);
+
+             }
+
+             function addUserMessage(text){
+
+                 const messages=document.getElementById("chatMessages");
+
+                 messages.innerHTML+=`<div class="user">${text}</div>`;
+
+                 messages.scrollTop=messages.scrollHeight;
+
+             }
+
+             function addBotMessage(text){
+
+                 const messages=document.getElementById("chatMessages");
+
+                 messages.innerHTML+=`<div class="bot">${text}</div>`;
+
+                 messages.scrollTop=messages.scrollHeight;
+
+             }
+         </script>
+
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <header class="top-header">
+
+            <div class="logo-container">
+
+                <img src="https://media.licdn.com/dms/image/v2/D4D22AQFFEYM5TCBrfA/feedshare-image-high-res/B4DZ9XL5JhJAAY-/0/1783874163524?e=1788998400&v=beta&t=0maZEb04DIEE9FCQ8ebl-Rzx1jZ_48JNwtY2yQmq39E" alt="DORM" class="logo-img">
+
+                <h1>DormDesk</h1>
+
+            </div>
+
+            <!-- <div class="header-icons">
+
+                <div class="notification">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+
+                <div class="profile">
+                    <i class="fa-solid fa-user-circle"></i>
+                </div>
+
+            </div> -->
+
+        </header>
+
+        <ul>
+
+            <li class="active" onclick="GoToDashboard()">
+                <i class="fa-solid fa-house"></i>
+                 Dashboard
+            </li>
+
+            <li onclick="GoToMarketPlace()">
+                <i class="fa-solid fa-store"></i>
+                Marketplace
+            </li>
+
+            <li onclick="GoToLostFound()">
+                <i class="fa-solid fa-key"></i>
+                Lost & Found
+            </li>
+
+            <li onclick="GoToUpdates()">
+                <i class="fa-solid fa-bell"></i>
+                Updates
+            </li>
+             <li onclick="GoToReportIssues()">
+                <i class="fa-solid fa-user"></i>
+                 Report Issues
+             </li>
+
+                <li onclick="LogOut()">
+                <i class="fa-solid fa-user"></i>
+                Log Out
+            </li> 
+            
+
+        </ul>
+
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="content">
+
+        <div class="dashboard-card">
+            <h2><i class="fa-solid fa-store"></i> Marketplace</h2>
+            <p>
+                Buy and sell items within the student community.
+            </p>
+        </div>
+
+        <div class="marketplace-items">
+
+            <div class="item-card">
+                <h3>Study Desk</h3>
+                <p>Price: R500</p>
+                <button>View Item</button>
+            </div>
+
+            <div class="item-card">
+                <h3>Mini Fridge</h3>
+                <p>Price: R1200</p>
+                <button>View Item</button>
+            </div>
+
+            <div class="item-card">
+                <h3>Mathematics Textbook</h3>
+                <p>Price: R350</p>
+                <button>View Item</button>
+            </div>
+
+            <div class="item-card">
+                <h3>Laptop Stand</h3>
+                <p>Price: R250</p>
+                <button>View Item</button>
+            </div>
+
+            <div class="item-card">
+                <h3>Office Chair</h3>
+                <p>Price: R700</p>
+                <button>View Item</button>
+            </div>
+
+            <div class="item-card">
+                <h3>Microwave</h3>
+                <p>Price: R900</p>
+                <button>View Item</button>
+            </div>
+
+        </div>
+
+        <!-- FORM FOR MARKET PLACE -->
+         <div class="dashboard-card">
+
+    <h2>Sell an Item</h2>
+
+    <input
+        type="text"
+        id="title"
+        placeholder="Item Name">
+
+    <br><br>
+
+    <textarea
+        id="description"
+        placeholder="Description">
+    </textarea>
+
+    <br><br>
+
+    <input
+        type="number"
+        id="price"
+        placeholder="Price">
+
+    <br><br>
+
+    <button id="postBtn">
+        Post Item
+    </button>
+
+</div>
+
+<div id="listings"></div>
+
+    </main>
+
+</div>
+<!-- Chat Button -->
+             <div id="chatButton" onclick="toggleChat()">
+                 💬
+             </div>
+
+             <!-- Chat Window -->
+             <div id="chatWindow">
+
+                 <div id="chatHeader">
+                     <span>🤖 timbev@ Bot</span>
+                     <button onclick="toggleChat()">✖</button>
+                 </div>
+
+                 <div id="chatMessages"></div>
+
+                 <div id="chatInputArea">
+
+                     <input
+                         type="text"
+                         id="userInput"
+                         placeholder="Ask me anything..."
+                         onkeypress="handleKey(event)">
+
+                     <button onclick="sendMessage()">Send</button>
+
+                 </div>
+
+             </div>
+
+
+</body>
+</html>
+
+<script>
+
+    
+
+    window.onload = () => {
+
+    loadListings();
+
+};
+
+postBtn.addEventListener("click", async () => {
+
+    const title =
+    document.getElementById("title").value;
+
+    const description =
+    document.getElementById("description").value;
+
+    const price =
+    document.getElementById("price").value;
+
+    const studentNumber =
+    localStorage.getItem("studentNumber");
+
+    if (!title || !description || !price) {
+
+        alert("Please complete all fields.");
+        return;
+    }
+
+    await saveListing(
+        title,
+        description,
+        price,
+        studentNumber
+    );
+
+    loadListings();
+
+});
+``
+
+// ADDED NOW 
+async function saveListing(
+    title,
+    description,
+    price,
+    studentNumber
+){
+    try {
+
+        const response = await fetch(
+            "http://localhost:3000/api/marketplace/add",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    studentNumber,
+                    title,
+                    description,
+                    price
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        alert(data.message);
+
+    } catch(error){
+
+        console.error(error);
+        alert("Failed to save listing");
+    }
+}
+
+/*
+===================================
+SAVE TO YOUR DATABASE HERE
+===================================
+*/
+
+async function saveListing(
+    title,
+    description,
+    price,
+    studentNumber
+){
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:3000/api/marketplace/add",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    studentNumber,
+                    title,
+                    description,
+                    price
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        alert(data.message);
+
+    } catch(error){
+
+        console.error(error);
+        alert("Failed to save listing");
+
+    }
+
+}
+
+//////////
+
+function addListing(item){
+
+    const card =
+    document.createElement("div");
+
+    card.className =
+    "item-card";
+
+    card.innerHTML = `
+
+        <h3>${item.title}</h3>
+
+        <p>
+            ${item.description}
+        </p>
+
+        <p>
+            <strong>Price:</strong>
+            R${item.price}
+        </p>
+
+        <p>
+            <strong>Seller:</strong>
+            ${item.studentNumber}
+        </p>
+
+    `;
+
+    listings.prepend(card);
+}
+
+/*
+===================================
+LOAD DATABASE POSTS HERE
+===================================
+
+Example:
+
+const posts = await getMarketPosts();
+
+posts.forEach(post=>{
+
+addListing(post);
+
+});
+
+*/
+//  search code
+
+document
+.getElementById("searchInput")
+.addEventListener("keyup", function(){
+
+    const value =
+    this.value.toLowerCase();
+
+    const cards =
+    document.querySelectorAll(".item-card");
+
+    cards.forEach(card => {
+
+        const text =
+        card.innerText.toLowerCase();
+
+        card.style.display =
+        text.includes(value)
+        ? "block"
+        : "none";
+
+    });
+
+});
+
+function GoToDashboard(){
+    window.location.href="INDEX.DASHBOARD.html";
+}
+
+function GoToMarketPlace(){
+    window.location.href="INDEX.market.html";
+}
+
+function GoToLostFound(){
+    window.location.href="INDEX.LOST&FOUND.html";
+}
+
+function GoToUpdates(){
+    window.location.href="INDEX.UPDATES.html";
+}
+
+function GoToReportIssues(){
+    window.location.href="INDEX.REPORTISSUES.html";
+}
+
+function LogOut(){
+
+    if(confirm("Are you sure you want to logout?")){
+        window.location.href="INDEX.StudentLOGIN.html";
+    }
+
+}
+
+</script>
+
+</body>
+</html>

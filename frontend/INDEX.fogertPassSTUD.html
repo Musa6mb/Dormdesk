@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+     <html lang="en">
+         <head>
+             <meta charset="UTF-8">
+             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+             <title>Forgot Password</title>
+
+             <style>
+                 *{
+                     margin:0;
+                     padding:0;
+                     box-sizing:border-box;
+                     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                 }
+
+                 body{
+                     background:linear-gradient(135deg,#053F50,#118A8C,#29C7C9);
+                     min-height:100vh;
+                     display:flex;
+                     flex-direction:column;
+                 }
+                 /* HEADER */
+
+                 header{
+                     width:100%;
+                     background:#0f4c5c;
+                     padding:15px 30px;
+                     display:flex;
+                     justify-content:space-between;
+                     align-items:center;
+                     box-shadow:0 2px 10px rgba(0,0,0,0.1);
+                 }
+
+                 .logo-container{
+                     display:flex;
+                     align-items:center;
+                     gap:15px;
+                 }
+
+                 .logo-container img{
+                     width:60px;
+                     height:60px;
+                     border-radius:50%;
+                     object-fit:cover;
+                     background:white;
+                 }
+
+                 .logo-container h1{
+                     font-size:30px;
+                 }
+
+
+                               /* nav menu */
+                 .home-btn {
+                     background: none;
+                     border: none;
+                     color: white;
+                     padding: 10px 12px;
+                     cursor: pointer;
+                     font-size: 1rem;
+                     border-radius: 4px;
+                     transition: background-color 0.3s ease;
+                 }
+
+                 .home-btn:hover {
+                     background:#1f6f6d;
+                 }
+
+                 /* CONTAINER */
+
+                 .main-content{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.container{
+    display:flex;
+    width:900px;
+    height:500px;
+    background:#f3f4f6;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    overflow:hidden;
+}
+
+.left{
+    width:50%;
+    background:#e6efee;
+    padding:40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.left h1{
+    font-size:34px;
+    color:#1f4d4c;
+    margin-bottom:10px;
+}
+
+.left p{
+    color:#4b6b6b;
+}
+
+.right{
+    width:50%;
+    background:white;
+    padding:40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.right h2{
+    font-size:26px;
+    color:#1f4d4c;
+    margin-bottom:10px;
+    text-align:center;
+}
+
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:20px;
+}
+
+.input-group{
+    margin-bottom:15px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#1f6f6d;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#1f6f6d;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#155a58;
+}
+
+.message{
+    text-align:center;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+.back-login{
+    text-align:center;
+    margin-top:15px;
+}
+
+.back-login a{
+    text-decoration:none;
+    color:#1f6f6d;
+    font-weight:bold;
+}
+                 /* FOOTER */
+
+                 footer{
+                     background:#0f4c5c;
+                     color:white;
+                     text-align:center;
+                     padding:15px;
+                     margin-top:auto;
+                 }
+             </style>
+         </head>
+
+         <body>
+                 <!-- our logo and its header -->
+                 <header>
+                     <div class="logo-container">
+                         <img src ="https://media.licdn.com/dms/image/v2/D4D22AQFFEYM5TCBrfA/feedshare-shrink_800/B4DZ9XL5JhJAAg-/0/1783874163524?e=1793232000&v=beta&t=4VQEIzGHz869lh6hcS_Oli43YuD9uS1R39rXvNjmP8E" alt="dorm desk">
+                         <h1>Dorm Desk App</h1>
+                     </div>
+                     <div class="home-btn" id="home">
+                         <button class="home-btn" onclick="window.location.href='INDEX.LANDINGPAGE.html'">
+                             Home
+                         </button>
+                     </div>
+                 </header>
+
+                 <div class="main-content">
+
+    <div class="container">
+
+        <div class="left">
+
+            <h1>Forgot Password?</h1>
+
+            <p>
+                Enter your student number and email address.
+                We will help you reset your password securely.
+            </p>
+
+        </div>
+
+        <div class="right">
+
+            <h2>Reset Password</h2>
+
+            <p class="subtitle">
+                Enter your account details below
+            </p>
+
+            <div class="input-group">
+                <input type="text"
+                       id="studentNumber"
+                       placeholder="Student Number">
+            </div>
+                  
+             <div class="input-group">
+                 <input
+                     type="email"
+                     id="emailAddress"
+                     placeholder="Registered Email Address"
+                 required>
+             </div>
+
+             <div class="input-group">
+                <input
+                     type="password"
+                     id="newPassword"
+                     placeholder="Enter New Password"
+                     required>
+            </div>
+
+            <div class="input-group">
+                     <input
+                         type="password"
+                         id="confirmPassword"
+                         placeholder="Confirm New Password"
+                     required>
+            </div>
+
+             <button onclick="resetPassword()">
+                 Reset Password
+             </button>
+
+            <div class="message" id="message"></div>
+
+            <div class="back-login">
+                <a href="INDEX.StudentLOGIN.html">
+                    Back to Login
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+                 <footer>
+                      <p>© 2026 Student Residence Management System. All Rights Reserved.</p>
+                 </footer>
+
+             <script>
+                 function home(){
+                    window.location
+                 }
+
+                 async function resetPassword(){
+
+    const studentNumber =
+    document.getElementById("studentNumber").value.trim();
+
+    const emailAddress =
+    document.getElementById("emailAddress").value.trim();
+
+    const newPassword =
+    document.getElementById("newPassword").value;
+
+    const confirmPassword =
+    document.getElementById("confirmPassword").value;
+
+    const message =
+    document.getElementById("message");
+
+    if(newPassword !== confirmPassword){
+
+        message.style.color = "red";
+        message.innerText = "Passwords do not match";
+        return;
+    }
+
+    try{
+
+        const response = await fetch(
+            "http://localhost:3000/api/students/reset-password",
+            {
+                method:"PUT",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    studentNumber,
+                    emailAddress,
+                    newPassword
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if(response.ok){
+
+            message.style.color = "green";
+            message.innerText = data.message;
+
+            setTimeout(() => {
+
+                window.location.href =
+                "INDEX.StudentLOGIN.html";
+
+            },2000);
+
+        }
+        else{
+
+            message.style.color = "red";
+            message.innerText = data.message;
+
+        }
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        message.style.color = "red";
+        message.innerText =
+        "Server connection failed";
+
+    }
+}
+
+             </script>
+
+         </body>
+ </html>

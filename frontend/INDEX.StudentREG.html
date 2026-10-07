@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+     <html lang="en">
+         <head>
+             <title>Student Registration</title>
+             <meta charset="UTF-8">
+             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+              <!-- our style -->
+             <style>
+                 *{
+                     margin:0;
+                     padding:0;
+                     box-sizing:border-box;
+                     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                 }
+
+                 body{
+                     background:linear-gradient(135deg,#053F50,#118A8C,#29C7C9);
+                     min-height:100vh;
+                     display:flex;
+                     flex-direction:column;
+                 }
+
+                 /* HEADER */
+
+                 header{
+                    width:100%;
+                     background:#0f4c5c;
+                     color:white;
+                     display:flex;
+                     justify-content:space-between;
+                     align-items:center;
+                     padding:15px 40px;
+                 }
+
+                 .logo-container{
+                     display:flex;
+                     align-items:center;
+                     gap:15px;
+                 }
+
+                 .logo-container img{
+                     width:60px;
+                     height:60px;
+                     border-radius:50%;
+                     object-fit:cover;
+                     background:white;
+                 }
+
+                 .logo-container h1{
+                     font-size:30px;
+                 }
+
+                 /* nav menu */
+                 .home-btn {
+                     background: none;
+                     border: none;
+                     color: white;
+                     padding: 10px 12px;
+                     cursor: pointer;
+                     font-size: 1rem;
+                     border-radius: 4px;
+                     transition: background-color 0.3s ease;
+                 }
+
+                 .home-btn:hover {
+                     background:#1f6f6d;
+                 }
+
+                  /* MAIN SECTION */
+
+                 .main{
+                     flex:1;
+                     display:flex;
+                     justify-content:center;
+                     align-items:center;
+                     padding:40px;
+                 }
+
+                 /* CONTAINER */
+
+                 .container{
+                     width:1100px;
+                     max-width:100%;
+                     display:flex;
+                     flex-direction:row;   /* Horizontal Layout */
+                     background:white;
+                     border-radius:20px;
+                     overflow:hidden;
+                     box-shadow:0 15px 35px rgba(0,0,0,0.2);
+                 }
+
+                 /* IMAGE SIDE */
+
+                 .image-section{
+                     width:50%;
+                 }
+
+                 .image-section img{
+                     width:100%;
+                     height:65%;
+                     object-fit:cover;
+                     display:block;
+                 }
+
+                 /* FORM SIDE */
+
+                 .form-section{
+                     width:50%;
+                     background:rgba(186,198,196,0.8);
+                     padding:40px;
+                 }
+
+                 .form-section h2{
+                     text-align:center;
+                     color:#0f4c5c;
+                     margin-bottom:10px;
+                     font-size:32px;
+                 }
+
+                 .subtitle{
+                     text-align:center;
+                     color:#555;
+                     margin-bottom:25px;
+                 }
+
+                 label{
+                     display:block;
+                     margin-bottom:5px;
+                     color:#0f4c5c;
+                     font-weight:600;
+                 }
+
+                 input,
+                 select{
+                     width:100%;
+                     padding:14px;
+                     margin-bottom:15px;
+                     border:1px solid #dcdcdc;
+                     border-radius:10px;
+                     font-size:15px;
+                 }
+
+                 input:focus,
+                 select:focus{
+                     outline:none;
+                     border-color:#1b98a0;
+                     box-shadow:0 0 8px rgba(27,152,160,0.3);
+                 }
+
+                 button{
+                     width:100%;
+                     padding:15px;
+                     border:none;
+                     border-radius:10px;
+                     background:#0f4c5c;
+                     color:white;
+                     font-size:16px;
+                     font-weight:bold;
+                     cursor:pointer;
+                     transition:0.3s;
+                 }
+
+                 button:hover{
+                     background:#1b98a0;
+                 }
+
+                 .links{
+                     text-align:center;
+                     margin-top:20px;
+                 }
+
+                 .links a{
+                     color:#0f4c5c;
+                     text-decoration:none;
+                     font-weight:bold;
+                 }
+
+                 .links a:hover{
+                     text-decoration:underline;
+                 }
+                 /* style for the validation button */
+                 #strength{
+    margin-top:5px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+                 /* FOOTER */
+
+                 footer{
+                     background:#0f4c5c;
+                     color:white;
+                     text-align:center;
+                     padding:15px;
+                 }
+
+                 /* MOBILE */
+
+                 @media(max-width:768px){
+
+                     .container{
+                         flex-direction:column;
+                     }
+
+                         .image-section,
+                         .form-section{
+                         width:89%;
+                     }
+
+                     .image-section{
+                         height:200px;
+                     }
+                 }
+             </style>
+         </head>
+
+     <body>
+
+             <header>
+                 <div class="logo-container">
+                    <img src = "https://media.licdn.com/dms/image/v2/D4D22AQFFEYM5TCBrfA/feedshare-image-high-res/B4DZ9XL5JhJAAY-/0/1783874163524?e=1791417600&v=beta&t=NVgDIQOlmw5U0wT1lWwU6M9Q4j2RluNun2k-TWxB2TA" alt="Logo" class="logo-img">
+                     <h1>Dorm Desk App</h1>
+
+                     
+                 </div>
+                 <div class="home-btn" id="home">
+                         <button class="home-btn" onclick="window.location.href='INDEX.LANDINGPAGE.html'">
+                             Home
+                         </button>
+                     </div>
+                 
+             </header>
+
+             <div class="main">
+
+                 <div class="container">
+
+                     <!-- LEFT IMAGE -->
+
+                     <div class="image-section">
+                         <img src ="https://media.licdn.com/dms/image/v2/D4D22AQFFEYM5TCBrfA/feedshare-image-high-res/B4DZ9XL5JhJAAY-/0/1783874163524?e=1792627200&v=beta&t=HqnpFfRbRU-xcuZD6HC5-sdV3e0iCw-55AUDeVrv0Dk" alt="Dorm Desk App">
+                     </div>
+
+                         <!-- RIGHT FORM -->
+                     <div class="form-section">   
+
+                         <form id="registrationForm" onsubmit="registerStudent(event)">
+
+                             <h2>Student Registration</h2>
+
+                             <input
+                                 type="text"
+                                 id="fullname"
+                                 placeholder="Full Name"
+                                 required>
+
+<input
+    type="text"
+    id="studentNumber"
+    placeholder="Student Number"
+    required>
+
+<p id="studentNumberMessage"></p>
+
+                             <label for="block">Block</label>
+                                 <select id="block" title="Block" required>
+                                     <option value="">Select Your Block</option>
+                                     <option value="Block A">Block A</option>
+                                     <option value="Block B">Block B</option>
+                                     <option value="Block C">Block C</option>
+                                     <option value="Block D">Block D</option>
+                                     <option value="Block E">Block E</option>
+                                 </select>
+
+                             <label for="gender">Gender</label>
+                                 <select id="gender" required>
+                                     <option value="">Select Gender</option>
+                                     <option value="Male">Male</option>
+                                     <option value="Female">Female</option>
+                                 </select>
+
+                             <input
+                                 type="email"
+                                 id="emailAddress"
+                                 placeholder="Email Address"
+                                 required>
+
+                             <input
+                                 type="password"
+                                 id="password"
+                                 placeholder="Password"
+                                 required>
+
+                                 <p id="strength"></p>
+
+                             <input
+                                 type="password"
+                                 id="confirm"
+                                 placeholder="Confirm Password"
+                                 required>
+
+                             <button type="submit">Register</button>
+
+                             <div class="links">
+                                  Already have an account?
+                                 <a href="INDEX.StudentLOGIN.html">Student Login</a>
+                             </div>
+
+                         </form>
+                     </div>      
+
+                     <!-- </div> -->
+
+                 </div>
+
+             </div>
+
+             <footer>
+                 <p>© 2026 Student Residence Management System. All Rights Reserved.</p>
+             </footer>
+            <script>
+            
+             async function registerStudent(event) {
+
+    event.preventDefault();
+
+    const student = {
+        fullname:
+        document.getElementById("fullname").value,
+
+        studentNumber:
+        document.getElementById("studentNumber").value,
+
+        block:
+        document.getElementById("block").value,
+
+        gender:
+        document.getElementById("gender").value,
+
+        emailAddress:
+        document.getElementById("emailAddress").value,
+
+        password:
+        document.getElementById("password").value
+    };
+
+    // validations student number
+    document.getElementById("studentNumber")
+.addEventListener("input", function(){
+
+    let studentNumber = this.value;
+
+    let message =
+    document.getElementById("studentNumberMessage");
+
+    const pattern =
+    /^[1-9][0-9]{8}$/;
+
+    if(studentNumber.length === 0){
+
+        message.innerHTML = "";
+    }
+    else if(pattern.test(studentNumber)){
+
+        message.innerHTML =
+        "✅ Valid Student Number";
+
+        message.style.color = "green";
+    }
+    else{
+
+        message.innerHTML =
+        "❌ Must be exactly 9 digits and cannot start with 0";
+
+        message.style.color = "red";
+    }
+});
+// password validation
+
+document.getElementById("password")
+.addEventListener("input", function () {
+
+    let password = this.value;
+
+    let strength =
+    document.getElementById("strength");
+
+    if(password.length === 0){
+
+        strength.innerHTML = "";
+
+    }
+    else if(password.length < 8){
+
+        strength.innerHTML =
+        "❌ Minimum 8 characters required";
+        strength.style.color = "red";
+
+    }
+    else if(!/[A-Z]/.test(password)){
+
+        strength.innerHTML =
+        "❌ Add at least one uppercase letter";
+        strength.style.color = "red";
+
+    }
+    // else if(!/[a-z]/.test(password)){
+
+    //     strength.innerHTML =
+    //     "❌ Add at least one lowercase letter";
+    //     strength.style.color = "red";
+
+    // }
+    else if(!/\d/.test(password)){
+
+        strength.innerHTML =
+        "❌ Add at least one number";
+        strength.style.color = "red";
+
+    }
+    else if(!/[@$!%*?&]/.test(password)){
+
+        strength.innerHTML =
+        "❌ Add at least one special character";
+        strength.style.color = "red";
+
+    }
+    else{
+
+        strength.innerHTML =
+        "✅ Strong Password";
+        strength.style.color = "green";
+
+    }
+});
+
+
+    const response = await fetch(
+        "http://localhost:3000/api/students/register",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(student)
+        }
+    );
+
+    const data = await response.json();
+
+    alert(data.message);
+
+    if(response.ok){
+        window.location.href =
+        "INDEX.StudentLOGIN.html";
+    }
+}
+</script>
+
+  
+     </body>
+ </html>

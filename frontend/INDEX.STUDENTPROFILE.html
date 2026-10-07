@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Profile</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+<style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    padding:30px;
+}
+
+ /* STYLE FOR THE SIDE BAR */
+ .dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+/* HEADER */
+
+.page-header{
+    background:#146f6a;
+    color:#146f6a;
+    padding:20px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.page-header h1{
+    font-size:30px;
+}
+
+.page-header p{
+    font-size:14px;
+}
+
+/* FOOTER */
+
+.footer{
+    background:#146f6a;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:20px;
+}
+
+/* MAIN CONTENT */
+
+.main-content{
+    flex:1;
+    padding:30px;
+    width:100%;
+}
+
+/* Make profile section wider */
+
+.profile-container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:230px;
+    background:#d8d8d8;
+    padding:20px;
+    box-shadow:3px 0 10px rgba(0,0,0,.1);
+}
+
+.top-header{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:10px;
+    padding-bottom:10px;
+    border-bottom:1px solid #ddd;
+}
+
+.logo-container{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-img{
+    width:55px;
+    height:55px;
+    object-fit:cover;
+    border-radius:12px;
+    border:3px solid #146f6a;
+    background:white;
+    padding:4px;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+.logo-container h1{
+    color:#146f6a;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    padding:15px;
+    margin-bottom:12px;
+    background:white;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.sidebar li i{
+    margin-right:10px;
+    color:#146f6a;
+}
+
+.sidebar li:hover{
+    background:#146f6a;
+    color:white;
+}
+
+.sidebar li:hover i{
+    color:white;
+}
+
+.active{
+    background:#146f6a !important;
+    color:white;
+}
+
+.active i{
+    color:white !important;
+}
+
+ main content{
+    flex:1;
+    padding:30px;
+ }
+
+/* HEADER */
+
+.header{
+    background:#146*6a;
+    color:#146f6a;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:25px;
+}
+
+
+.profile-container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.profile-card{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.profile-header{
+    text-align:center;
+}
+
+.avatar{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    border:4px solid #0066ff;
+}
+
+.profile-header h1{
+    margin-top:15px;
+}
+
+.profile-header p{
+    color:gray;
+}
+
+.profile-info{
+    display:flex;
+    justify-content:space-around;
+    margin-top:25px;
+    flex-wrap:wrap;
+}
+
+.info-item{
+    text-align:center;
+    margin:10px;
+}
+
+.info-item span{
+    font-weight:bold;
+    color:#0066ff;
+}
+
+.stats-container{
+    display:flex;
+    gap:20px;
+    margin-top:25px;
+    flex-wrap:wrap;
+}
+
+.stat-card{
+    flex:1;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.stat-card h3{
+    color:#555;
+}
+
+.stat-card p{
+    font-size:30px;
+    color:#0066ff;
+    margin-top:10px;
+}
+
+.section{
+    margin-top:30px;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.notification{
+    padding:12px;
+    margin-bottom:10px;
+    background:#f7f7f7;
+    border-left:4px solid #0066ff;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table th,
+table td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+.completed{
+    color:green;
+    font-weight:bold;
+}
+
+.pending{
+    color:red;
+    font-weight:bold;
+}
+
+.progress{
+    color:orange;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <header class="top-header">
+
+            <div class="logo-container">
+
+               <img src = "https://media.licdn.com/dms/image/v2/D4D22AQFFEYM5TCBrfA/feedshare-image-high-res/B4DZ9XL5JhJAAY-/0/1783874163524?e=1791417600&v=beta&t=NVgDIQOlmw5U0wT1lWwU6M9Q4j2RluNun2k-TWxB2TA" alt="Logo" class="logo-img"> 
+
+                <h1>DormDesk</h1>
+
+            </div>
+
+        </header>
+
+<ul>
+
+            <li class="active" onclick="GoToDashboard()">
+                <i class="fa-solid fa-house"></i>
+                 Dashboard
+            </li>
+
+            <!-- <li onclick="GoToMarketPlace()">
+                <i class="fa-solid fa-store"></i>
+                Marketplace
+            </li> -->
+
+            <!-- <li onclick="GoToLostFound()">
+                <i class="fa-solid fa-key"></i>
+                Lost & Found
+            </li> -->
+
+            <li onclick="GoToUpdates()">
+                <i class="fa-solid fa-bell"></i>
+                Updates
+            </li>
+             <li onclick="GoToReportIssues()">
+                <i class="fa-solid fa-user"></i>
+                 Report Issues
+             </li>
+
+             <li onclick="GoToStudProfile()">
+                 <i class="fa-solid fa-user"></i>
+                 Profile
+                 </a>
+             </li>
+
+                <li onclick="LogOut()">
+                <i class="fa-solid fa-user"></i>
+                Log Out
+            </li> 
+            
+
+        </ul>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <div class="header">
+
+            <h1>
+                <i class="fa-solid fa-user"></i>
+                Student Profile
+            </h1>
+
+            <p>
+                View your personal information, issue statistics and notifications.
+            </p>
+
+        </div>
+
+        <!-- PROFILE CARD -->
+
+        <div class="profile-card">
+
+            <div class="profile-header">
+
+                
+
+                <h1 id="fullname"></h1>
+
+                <p id="studentNumber"></p>
+
+            </div>
+
+            <div class="profile-info">
+
+                <div class="info-item">
+
+                    <span>Email</span>
+
+                    <p id="email"></p>
+
+                </div>
+
+                <div class="info-item">
+
+                    <span>Block</span>
+
+                    <p id="block"></p>
+
+                </div>
+
+                <div class="info-item">
+
+                    <span>Gender</span>
+
+                    <p id="gender"></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- STATS -->
+
+        <div class="stats-container">
+
+            <div class="stat-card">
+
+                <h3>Total Issues</h3>
+
+                <p id="totalIssues">0</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Completed</h3>
+
+                <p id="completedIssues">0</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Pending</h3>
+
+                <p id="pendingIssues">0</p>
+
+            </div>
+
+        </div>
+
+        <!-- NOTIFICATIONS -->
+
+        <div class="section">
+            <h2>Recent Notifications</h2>
+            <div id="notifications"></div>
+        </div>
+
+        <!-- ISSUES -->
+
+        <div class="section">
+
+            <h2>My Issues</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="issuesTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+
+<script>
+     function GoToEmergency() {
+        window.location.href = "INDEX.EMERGENCY.html";
+     }
+     function GoToLostFound() {
+        window.location.href = "INDEX.LOST&FOUND.html";
+     }
+     function GoToUpdates(){
+        window.location.href="INDEX.UPDATES.html";
+     }
+     function GoToReportIssues(){
+        window.location.href="INDEX.REPORTISSUES.html";
+     }
+     function GoToMarketPlace(){
+        window.location.href="INDEX.market.html";
+     }
+     function GoToDashboard(){
+        window.location.href="INDEX.DASHBOARD.html";
+     }
+
+     function GoToStudProfile() {
+        window.location.href = "INDEX.STUDENTPROFILE.html";
+     }
+     function LogOut(){
+
+         if(confirm("Are you sure you want to logout?")){
+             window.location.href="INDEX.StudentLOGIN.html";
+         }
+     }
+    const API_URL = "http://localhost:3000";
+
+async function loadProfile() {
+
+    try {
+
+        const loggedStudent = JSON.parse(
+            localStorage.getItem("loggedInStudent")
+        );
+
+        if (!loggedStudent) {
+            alert("Please login first");
+            return;
+        }
+
+        const studentNumber =
+            loggedStudent.studentNumber;
+
+        // Student Data
+        const student = JSON.parse(
+    localStorage.getItem("loggedInStudent")
+);
+
+if (!student) {
+    alert("Please login first");
+    return;
+}
+
+        // if (!student) {
+        //     alert("Student not found");
+        //     return;
+        // }
+
+        document.getElementById("fullname").innerText =
+            student.fullname;
+
+        document.getElementById("studentNumber").innerText =
+            student.studentNumber;
+
+        document.getElementById("email").innerText =
+            student.emailAddress;
+
+        document.getElementById("block").innerText =
+            student.block;
+
+        document.getElementById("gender").innerText =
+            student.gender;
+
+        document.getElementById("avatar").src =
+            `https://ui-avatars.com/api/?name=${encodeURIComponent(student.fullname)}&background=0066ff&color=fff`;
+
+        // Issues
+        const issuesResponse = await fetch(
+            `${API_URL}/api/issues/${studentNumber}`
+        );
+
+        const issues =
+            await issuesResponse.json();
+
+        document.getElementById("totalIssues").innerText =
+            issues.length;
+
+        document.getElementById("completedIssues").innerText =
+            issues.filter(
+                i => i.status === "Completed"
+            ).length;
+
+        document.getElementById("pendingIssues").innerText =
+            issues.filter(
+                i => i.status === "Pending"
+            ).length;
+
+        const issueTable =
+            document.getElementById("issuesTable");
+
+        issues.reverse().forEach(issue => {
+
+            let statusClass = "";
+
+            if(issue.status === "Completed"){
+                statusClass = "completed";
+            }
+            else if(issue.status === "In Progress"){
+                statusClass = "progress";
+            }
+            else{
+                statusClass = "pending";
+            }
+
+            issueTable.innerHTML += `
+                <tr>
+                    <td>${issue.title}</td>
+                    <td>${issue.category}</td>
+                    <td class="${statusClass}">
+                        ${issue.status}
+                    </td>
+                </tr>
+            `;
+        });
+
+        // Notifications
+        const notificationResponse =
+            await fetch(
+            `${API_URL}/api/notifications/${studentNumber}`
+        );
+
+        const notifications =
+            await notificationResponse.json();
+
+        const notificationContainer =
+            document.getElementById("notifications");
+
+        notifications
+        .reverse()
+        .slice(0,5)
+        .forEach(notification => {
+
+            notificationContainer.innerHTML += `
+                <div class="notification">
+                    <p>${notification.message}</p>
+                    <small>
+                    ${new Date(
+                        notification.createdAt
+                    ).toLocaleString()}
+                    </small>
+                </div>
+            `;
+        });
+
+    } catch(error) {
+        console.error(error);
+    }
+}
+const loggedStudent = JSON.parse(
+    localStorage.getItem("loggedInStudent")
+);
+
+console.log("Logged Student:", loggedStudent);
+
+loadProfile();
+
+</script>
+
+</body>
+</html>

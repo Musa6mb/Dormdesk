@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Profile</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#ececec;
+}
+
+.dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:250px;
+    background:#d8d8d8;
+    padding:20px;
+}
+
+.logo{
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    color:#135b59;
+    margin-bottom:30px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    padding:15px;
+    background:white;
+    margin-bottom:10px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.sidebar li:hover,
+.active{
+    background:#146f6a;
+    color:white;
+}
+
+/* Main */
+
+.main-content{
+    flex:1;
+    padding:30px;
+}
+
+.header{
+    background:#146f6a;
+    color:white;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:25px;
+}
+
+.profile-card{
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.profile-header{
+    text-align:center;
+}
+
+.avatar{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    border:4px solid #146f6a;
+}
+
+.profile-header h2{
+    margin-top:15px;
+}
+
+.profile-header p{
+    color:gray;
+}
+
+.profile-info{
+    display:flex;
+    justify-content:space-around;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.info-item{
+    text-align:center;
+    margin:10px;
+}
+
+.info-item span{
+    font-weight:bold;
+    color:#146f6a;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:25px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card span{
+    font-size:35px;
+    color:#146f6a;
+    font-weight:bold;
+}
+
+@media(max-width:900px){
+
+    .dashboard{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            DormDesk Admin
+        </div>
+
+        <ul>
+
+            <li onclick="GoToADMINCONTENT()">
+                <i class="fa-solid fa-chart-line"></i>
+                Dashboard
+            </li>
+
+            <li onclick="goToUPDATEreport()">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                Maintenance Requests
+            </li>
+
+            <li onclick="GoToADMINSTUDENTS()">
+                <i class="fa-solid fa-users"></i>
+                Students
+            </li>
+
+            <li onclick="GoToADMINPROFILE()">
+                <i class="fa-solid fa-user"></i>
+                Profile
+            </li>
+
+            <li onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <main class="main-content">
+
+        <div class="header">
+
+            <h1>
+                <i class="fa-solid fa-user-shield"></i>
+                Admin Profile
+            </h1>
+
+            <p>Manage your DormDesk administrator account.</p>
+
+        </div>
+
+        <div class="profile-card">
+
+            <div class="profile-header">
+
+                <!-- <img
+                src="https://ui-avatars.com/api/?  <h2 id="adminName"> -->
+                    System Administrator
+                </h2>
+
+                <p id="adminRole">
+                    DormDesk Administrator
+                </p>
+
+            </div>
+
+            <div class="profile-info">
+
+                <div class="info-item">
+                    <span>Email</span>
+                    <p id="adminEmail">
+                        admin@dormdesk.com
+                    </p>
+                </div>
+
+                <div class="info-item">
+                    <span>Role</span>
+                    <p id="roleText">
+                        Administrator
+                    </p>
+                </div>
+
+                <div class="info-item">
+                    <span>Status</span>
+                    <p>Active</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="card">
+                <h3>Total Students</h3>
+                <span id="totalStudents">0</span>
+            </div>
+
+            <div class="card">
+                <h3>Total Requests</h3>
+                <span id="totalRequests">0</span>
+            </div>
+
+            <div class="card">
+                <h3>Completed Issues</h3>
+                <span id="completedIssues">0</span>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+
+function GoToADMINCONTENT(){
+    window.location.href="INDEX.ADMINCONTENT.html";
+}
+
+function GoToADMINPROFILE(){
+    window.location.href="INDEX.ADMINPROFILE.html";
+}
+
+function GoToADMINSTUDENTS(){
+    window.location.href="INDEX.ADMINSTUDENTS.html";
+}
+
+function goToUPDATEreport(){
+    window.location.href="INDEX.ADMINUPDATEREPORT.html";
+}
+
+function logout(){
+    window.location.href="INDEX.ADMINLOGIN.html";
+}
+
+const API_URL = "http://localhost:3000";
+
+async function loadProfile(){
+
+    const admin = JSON.parse(
+        localStorage.getItem("loggedInAdmin")
+    );
+
+     if(admin){
+
+         document.getElementById("adminName").innerText =
+             admin.fullname || "Administrator";
+
+          document.getElementById("adminEmail").innerText =
+             admin.email || "admin@dormdesk.com";
+
+         document.getElementById("adminRole").innerText =
+             admin.role || "Administrator";
+
+         document.getElementById("roleText").innerText =
+             admin.role || "Administrator";
+     }
+
+     try{
+
+         // Students
+         const studentResponse =
+         await fetch(`${API_URL}/api/students`);
+
+         const students =
+         await studentResponse.json();
+
+         document.getElementById("totalStudents")
+         .innerText = students.length;
+
+         // Issues
+         const issueResponse =
+         await fetch(`${API_URL}/api/issues`);
+
+         const issues =
+         await issueResponse.json();
+
+         document.getElementById("totalRequests")
+         .innerText = issues.length;
+
+         document.getElementById("completedIssues")
+         .innerText = issues.filter(
+             i => i.status === "Completed"
+         ).length;
+
+     }
+     catch(error){
+         console.error(error);
+     }
+ }
+
+ loadProfile();
+  // for starts
+     async function loadAdminStatistics(){
+         try{
+                 /* Total Students */
+                 const studentResponse =
+                 await fetch(`${API_URL}/api/students`);
+                 const students = await studentResponse.json();
+                 document.getElementById("totalStudents").innerText = students.length;
+                 /* Total Requests */
+                 const issueResponse = await fetch(`${API_URL}/api/issues`);
+                 const issues = await issueResponse.json();
+                 document.getElementById("totalRequests").innerText = issues.length;
+                 /* Completed Issues */
+                 const completed = issues.filter(issue => issue.status === "Completed");
+                 document.getElementById("completedIssues").innerText = completed.length;
+             }
+             catch(error){
+                 console.error(error);
+                 alert("Unable to load statistics");
+             }
+     }
+     loadAdminStatistics();
+
+ </script>
+
+ </body>
+ </html>
